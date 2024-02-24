@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import Buttons from "../utils/Buttons";
 
 const Header = () => {
+
+   const LogInTesting = () => {
+     console.log("Login testing");
+   };
+
   return (
     <div className="Header w-100% h-14 flex justify-around items-center bg-[#0c0b1e]">
       <section className="Logo">
@@ -20,6 +26,12 @@ const Header = () => {
             Home
           </Link>
 
+          <Link
+            to={`/teacher`}
+            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+          >
+            Teachers
+          </Link>
           <Link
             to={`#`}
             className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
@@ -41,9 +53,9 @@ const Header = () => {
         </nav>
       </section>
       <section className="LogIn">
-        <button className="bg-blue-500 w-24 h-8 rounded-xl hover:scale-110 hover:bg-blue-800 transition duration-200 ease-in-out">
-          Log In
-        </button>
+        <div>
+          <Buttons text={"Log In"} size="xl" toCall={LogInTesting} />
+        </div>
       </section>
     </div>
   );
