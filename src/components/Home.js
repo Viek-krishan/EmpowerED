@@ -47,6 +47,7 @@ const Home = () => {
   const scrollToTeachers = () => {
     navigate("/teacher");
   };
+ 
 
   return (
     <div className="Home w-full h-fit  ">
@@ -131,7 +132,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="text-white flex justify-center">
+      <div className="ScrollToTeachersPage text-white flex justify-center">
         <Buttons text={"Scroll to Teachers"} toCall={scrollToTeachers} />
       </div>
     </div>

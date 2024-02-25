@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Buttons from "../utils/Buttons";
 
 const Header = () => {
+  const navigate = useNavigate();
 
-   const LogInTesting = () => {
-     console.log("Login testing");
-   };
+  const LogInTesting = () => {
+    console.log("Login testing");
+  };
+
+  const LogInPage = () => {
+    navigate("/login");
+  };
 
   return (
     <div className="Header w-100% h-14 flex justify-around items-center bg-[#0c0b1e]">
@@ -54,7 +59,7 @@ const Header = () => {
       </section>
       <section className="LogIn">
         <div>
-          <Buttons text={"Log In"} size="xl" toCall={LogInTesting} />
+          <Buttons text={"Log In"} size="xl" toCall={LogInPage} />
         </div>
       </section>
     </div>

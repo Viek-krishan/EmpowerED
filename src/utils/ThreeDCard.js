@@ -9,7 +9,7 @@ import ProfileCard from "../components/profileCard";
 export function ThreeDCard() {
   return (
     <CardContainer className="inter-var m-5 ">
-      <CardBody className="bg-gray-50 text-black h-72 relative group/card dark:hover:shadow-2xl dark:hover:shadow-blue-200/[0.4] dark:bg-white dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="bg-gray-50 text-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-blue-200/[0.4] dark:bg-white dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-gray-700"

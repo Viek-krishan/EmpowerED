@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
 import Teachers from "./components/Teachers";
+import LogIn from "./components/LogIn";
 
 const AppLayout = () => {
   return (
@@ -42,8 +43,8 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "",
-        element: <Footer />,
+        path: "/login",
+        element: <LogIn />,
       },
     ],
   },
