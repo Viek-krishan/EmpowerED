@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import Teachers from "./components/Teachers";
 import LogIn from "./components/LogIn";
+import Register from "./components/Register";
 
 const AppLayout = () => {
   return (
@@ -45,6 +46,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/login",
         element: <LogIn />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

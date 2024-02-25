@@ -16,4 +16,8 @@ export const images = [
     id: 4,
     url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/wphrryteqdho53ptgjxm",
   },
+  {
+    id: 5,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/q3itcfgnljz9g9ihawkn",
+  },
 ];
