@@ -22,7 +22,7 @@ const Header = () => {
           </Link>
         </div>
       </section>
-      <section className="Navigator w-1/3">
+      <section className="Navigator w-2/3">
         <nav className="w-full flex justify-around">
           <Link
             to={`/`}
@@ -36,6 +36,12 @@ const Header = () => {
             className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
           >
             Teachers
+          </Link>
+          <Link
+            to={`/teacher-profile/123`}
+            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+          >
+            Teachers Profile
           </Link>
           <Link
             to={`#`}

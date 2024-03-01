@@ -3,10 +3,9 @@
 // import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
-import Buttons from "./Buttons";
 import ProfileCard from "../components/profileCard";
 
-export function ThreeDCard() {
+export function ThreeDCard({callTo}) {
   return (
     <CardContainer className="inter-var m-5 ">
       <CardBody className="bg-gray-50 text-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-blue-200/[0.4] dark:bg-white dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
@@ -42,6 +41,7 @@ export function ThreeDCard() {
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl text-xs font-normal dark:text-black"
+            onClick={callTo}
           >
             Details →
           </CardItem>
@@ -49,6 +49,7 @@ export function ThreeDCard() {
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-black text-xs font-bold"
+            onClick={callTo}
           >
             connect
           </CardItem>

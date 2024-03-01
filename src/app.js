@@ -7,9 +7,11 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
-import Teachers from "./components/Teachers";
+import Teachers from "./components/AllTeachers";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
+import Class from "./components/Class";
+import TeachersProfile from "./components/TeachersProfile";
 
 const AppLayout = () => {
   return (
@@ -36,6 +38,10 @@ const appRouter = createBrowserRouter([
         element: <Teachers />,
       },
       {
+        path: "/teacher-profile/:id",
+        element: <TeachersProfile />,
+      },
+      {
         path: "/about",
         element: <About />,
       },
@@ -50,6 +56,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/class",
+        element: <Class />,
       },
     ],
   },
