@@ -25,4 +25,17 @@ export const images = [
     id: 6,
     url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/reezm4lyzhvivmocqowj",
   },
+  {
+    // Thumbnail for intro video demo
+    id: 6,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/desulqe9gg5vjkfwpmav",
+  },
+];
+
+export const DemoVideo = [
+  {
+    id: 1,
+    url: "https://res.cloudinary.com/dur4pixxs/video/upload/f_auto:video,q_auto/qfjogokyefeir6iv51ac",
+    description: "EmpowerED video for demo tasting.",
+  },
 ];

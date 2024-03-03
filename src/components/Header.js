@@ -30,18 +30,11 @@ const Header = () => {
           >
             Home
           </Link>
-
           <Link
             to={`/teacher`}
             className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
           >
-            Teachers
-          </Link>
-          <Link
-            to={`/teacher-profile/123`}
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
-          >
-            Teachers Profile
+            Our Mentors
           </Link>
           <Link
             to={`#`}

@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-// import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -12,12 +11,12 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import Class from "./components/Class";
 import TeachersProfile from "./components/TeachersProfile";
+import VideoPopUp from "./components/VideoPop";
 
 const AppLayout = () => {
   return (
     <div className="container w-screen overflow-hidden text-white">
-   
-      <Outlet/>
+      <Outlet  />
       <Footer />
     </div>
   );
