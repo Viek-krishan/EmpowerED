@@ -23,7 +23,7 @@ export const images = [
   {
     // My image for sample DP
     id: 6,
-    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/reezm4lyzhvivmocqowj",
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/z7r4ncpnsynko5hzipgi",
   },
   {
     // Thumbnail for intro video demo
