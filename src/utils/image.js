@@ -27,8 +27,38 @@ export const images = [
   },
   {
     // Thumbnail for intro video demo
-    id: 6,
+    id: 7,
     url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/desulqe9gg5vjkfwpmav",
+  },
+  {
+    // DP demo
+    id: 8,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/sp73un7juzuapvlsssdl",
+  },
+  {
+    // DP demo
+    id: 9,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/we73bmwxynkcoh7fjnyb",
+  },
+  {
+    // DP demo
+    id: 10,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/xmeni5m0lz9mla5tj5ri",
+  },
+  {
+    // DP demo
+    id: 11,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/nhxpslj59modo4tlufiz",
+  },
+  {
+    // DP demo
+    id: 12,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/nbx6czgctwvfzab9mrre",
+  },
+  {
+    // DP demo
+    id: 13,
+    url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/xfvzs0xc5th8uzrhwnov",
   },
 ];
 

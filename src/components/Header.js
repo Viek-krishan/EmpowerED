@@ -1,8 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Buttons from "../utils/Buttons";
+import { useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const LogInTesting = () => {
     console.log("Login testing");
@@ -26,31 +28,67 @@ const Header = () => {
         <nav className="w-full flex justify-around">
           <Link
             to={`/`}
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
           >
             Home
           </Link>
           <Link
             to={`/teacher`}
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/teacher"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
           >
             Our Mentors
           </Link>
           <Link
+            to={`/class`}
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/class"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
+          >
+            Class Room
+          </Link>
+          <Link
             to={`#`}
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "#"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
           >
             Catagory
           </Link>
           <Link
-            to={`#`}
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+            to={`/profile/student`}
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/profile/student"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
           >
             Your Profile
           </Link>
           <Link
             to="/about"
-            className="font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out"
+            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/about"
+                ? "underline decoration-[#1ad179] decoration-4"
+                : ""
+            }`}
           >
             About/FAQ
           </Link>

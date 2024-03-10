@@ -1,28 +1,104 @@
 import { Link } from "react-router-dom";
+import { Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 
-const Footer = () => {
+const Footer = ({ bg, text1, text2 }) => {
+  const bgColor = bg || "white";
+  const textCol1 = text1 || "black";
+  const textCol2 = text2 || "gray-700";
+
   return (
-    <div className="bg-black text-white p-5 w-[99vw] flex justify-evenly ">
-      <section className="logo">
-        <img src="#" alt="Logo" />
-        <h3>@ 2023 Bundle Technologies Pvt. Ltd</h3>
+    <div className={`bg-${bgColor} text-${textCol1} p-10 flex justify-evenly `}>
+      <section className="EmpowerED w-1/4 flex flex-col items-center ">
+        <div className="Logo m-10">
+          {/* <img src="" alt="Logo" className=""/> */}
+          <h1 className="text-3xl text-center">EmpowerED</h1>
+        </div>
+        <div className="Social w-3/4 flex justify-evenly ">
+          <Link
+            to={"#"}
+            className="rounded-xl w-fit h-fit p-2 transition duration-150 ease-in-out hover:bg-blue-100 "
+          >
+            <Instagram />
+          </Link>
+          <Link
+            to={"#"}
+            className="rounded-xl w-fit h-fit p-2 transition duration-150 ease-in-out hover:bg-blue-100 "
+          >
+            <Linkedin />
+          </Link>
+          <Link
+            to={"#"}
+            className="rounded-xl w-fit h-fit p-2 transition duration-150 ease-in-out hover:bg-blue-100 "
+          >
+            <Twitter />
+          </Link>
+          <Link
+            to={"#"}
+            className="rounded-xl w-fit h-fit p-2 transition duration-150 ease-in-out hover:bg-blue-100 "
+          >
+            <Facebook />
+          </Link>
+        </div>
+        <h3 className="mt-10 text-lg ">cc 2024 EmpowerED</h3>
+        <h3 className="">EmpowerED is registered</h3>
       </section>
-      <section className="Company flex flex-col">
-        <h2 className="text-lg font-semibold cursor-default">Company</h2>
-        <Link to="#" className="m-2">About</Link>
-        <Link to="#" className="m-2 text-sm font-extralight">Team</Link>
-        <Link to="#" className="m-2 text-sm font-extralight">Careers</Link>
-        <Link to="#" className="m-2 text-sm font-extralight">Developer</Link>
+      <section className="Courses">
+        <h1 className="text-xl text-center font-medium">Courses</h1>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Classroom courses
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Virtual classroom courses
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          E-learning courses
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          video Courses
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Offline Courses
+        </h3>
       </section>
-      <section className="contact us flex flex-col">
-        <h2 className="text-lg font-semibold cursor-default">Contact us</h2>
-        <Link to="#" className="m-2 text-sm font-extralight">Help & Support </Link>
-        <Link to="#" className="m-2 text-sm font-extralight">Partner with us</Link>
-        <Link to="#" className="m-2 text-sm font-extralight">Ride with us</Link>
+      <section className="Community">
+        <h1 className="text-xl text-center font-medium">Community</h1>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Learners</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Partners</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Developers
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Transactions
+        </h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Blog</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Teaching Center
+        </h3>
       </section>
-      <section className="Delivery flex flex-col">
-        <h2 className="text-lg cursor-default">Our service is available for all over India</h2>
-        <h2 className="text-lg cursor-default">Best Tuter from all over world and for every one... </h2>
+      <section className="Quick_Links  flex flex-col">
+        <h1 className="text-xl text-center font-medium">Quick Links</h1>
+        <Link className={`m-5 text-lg font-extralight text-${textCol2}`}>Home</Link>
+        <Link className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Our Mentors
+        </Link>
+        <Link className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Catagory
+        </Link>
+        <Link className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          Your Profile
+        </Link>
+        <Link className={`m-5 text-lg font-extralight text-${textCol2}`}>
+          About
+        </Link>
+      </section>
+      <section className="More">
+        <h1 className="text-xl text-center font-medium">More</h1>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Press</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Investor</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Terms</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Privacy</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Help</h3>
+        <h3 className={`m-5 text-lg font-extralight text-${textCol2}`}>Contact</h3>
       </section>
     </div>
   );

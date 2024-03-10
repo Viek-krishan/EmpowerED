@@ -32,6 +32,7 @@
     "cosmiconfig": "^8.3.6",
     "framer-motion": "^11.0.6",
     "lottie-web": "^5.12.2",
+    "lucide": "^0.354.0",
     "lucide-react": "^0.343.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

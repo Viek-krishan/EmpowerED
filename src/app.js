@@ -11,12 +11,12 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import Class from "./components/Class";
 import TeachersProfile from "./components/TeachersProfile";
-import VideoPopUp from "./components/VideoPop";
+import StudentProfile from "./components/StudentProfile";
 
 const AppLayout = () => {
   return (
-    <div className="container w-screen overflow-hidden text-white">
-      <Outlet  />
+    <div className="container w-full overflow-hidden text-white">
+      <Outlet />
       <Footer />
     </div>
   );
@@ -35,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/teacher",
         element: <Teachers />,
+      },
+      {
+        path: "/class",
+        element: <Class />,
       },
       {
         path: "/teacher-profile/:id",
@@ -59,6 +63,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/class",
         element: <Class />,
+      },
+      {
+        path: "/profile/student",
+        element: <StudentProfile />,
       },
     ],
   },

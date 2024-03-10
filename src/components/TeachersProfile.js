@@ -1,6 +1,5 @@
 import Buttons from "../utils/Buttons";
 import { ListOfQuailification } from "../utils/ListOfQualification";
-import DetailDisplay from "./DetailComponent";
 import Header from "./Header";
 import { images } from "../utils/image";
 import { useState } from "react";
@@ -9,6 +8,19 @@ import { Play } from "lucide-react";
 
 const TeachersProfile = () => {
   const [showVideoPopUp, setShowVideoPopUp] = useState(false);
+
+  const DetailDisplay = ({ LeftText, RightText }) => {
+    return (
+      <div className="w-full flex justify-evenly m-2 ">
+        <h1 className="w-1/3 text-wrap text-lg p-1 bg-blue-50 rounded-xl ">
+          {LeftText}
+        </h1>
+        <h1 className="w-1/2 text-wrap font-extralight p-1 bg-blue-50 rounded-xl">
+          {RightText}
+        </h1>
+      </div>
+    );
+  };
 
   return (
     <div>
