@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const Footer = ({ bg, text1, text2 }) => {
+  // const bgColor = bg || "black";
   const bgColor = bg || "white";
   const textCol1 = text1 || "black";
   const textCol2 = text2 || "gray-700";
 
   return (
-    <div className={`bg-${bgColor} text-${textCol1} p-10 flex justify-evenly `}>
+    <div className={`bg-${bgColor} text-${textCol1} p-10 flex justify-evenly  `}>
       <section className="EmpowerED w-1/4 flex flex-col items-center ">
         <div className="Logo m-10">
           {/* <img src="" alt="Logo" className=""/> */}
