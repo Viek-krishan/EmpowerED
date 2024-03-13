@@ -47,7 +47,10 @@ const Home = () => {
   const scrollToTeachers = () => {
     navigate("/teacher");
   };
- 
+
+  const navigateToResgister = () => {
+    navigate(`/register`);
+  };
 
   return (
     <div className="Home w-full h-fit  ">
@@ -63,10 +66,14 @@ const Home = () => {
           </p>
           <div className="flex w-fit top-8 relative ml-32">
             <div>
-              <Buttons text="Register" size={"2xl"} />
+              <Buttons
+                text="Register"
+                size={"2xl"}
+                toCall={navigateToResgister}
+              />
             </div>
             <div>
-              <Buttons text={"Guest"} size={"2xl"} />
+              <Buttons text={"Guest"} size={"2xl"} toCall={scrollToTeachers} />
             </div>
           </div>
         </section>

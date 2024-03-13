@@ -14,15 +14,29 @@ const StudentProfile = () => {
     );
   };
 
+  const recentClassesCard = () => {
+    return (
+      <div className="flex items-center">
+        <div className=" w-24 h-20 m-4 rounded-lg drop-shadow-xl   border">
+          <img src="#" alt="DP" className="w-full h-full" />
+        </div>
+        <div>
+          <h1 className="text-xl">Vivek Krishan</h1>
+          <h3 className="text-lg text-gray-500">Subjects</h3>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="bg-[#0c0b1e] pb-10 p-4 rounded-bl-[50px]">
         <Header />
       </div>
 
-      <div className="Details flex flex-wrap">
-        {/*--------------- First Cart------------- */}
-        <section className="ShortCard w-1/4 mt-10 ml-10  bg-white rounded-2xl drop-shadow-2xl text-black flex flex-col justify-center items-center hover:scale-[1.02] transition duration-300 ease-in-out">
+      <div className="Details flex flex-wrap text-black">
+        {/*--------------- First Card ------------- */}
+        <section className="ShortCard w-1/4 mt-10 ml-10  bg-white rounded-2xl drop-shadow-2xl  flex flex-col justify-center items-center hover:scale-[1.02] transition duration-300 ease-in-out">
           <div className="DP w-40 h-40 rounded-full m-4 flex overflow-hidden ">
             <img
               src="https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/reezm4lyzhvivmocqowj"
@@ -37,6 +51,7 @@ const StudentProfile = () => {
           </div>
         </section>
 
+        {/*--------------- Second Card ------------- */}
         <section className="All_Details w-3/5 h-fit m-10 bg-white rounded-2xl drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out   ">
           <div className="w-full">
             <DetailDisplay LeftText={"Full Name"} RightText={"Vivek Krishan"} />
@@ -62,7 +77,11 @@ const StudentProfile = () => {
           </div>
         </section>
 
+        {/*--------------- Third Card ------------- */}
         <section className="Achivements_And_Goals w-1/3 m-10 rounded-2xl bg-white drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out  ">
+          <h1 className=" text-lg text-center p-5 font-medium">
+            All Achivements
+          </h1>
           <div>
             {achivements.map((item) => {
               return (
@@ -75,8 +94,23 @@ const StudentProfile = () => {
           </div>
         </section>
 
+        {/*--------------- Fouth Card ------------- */}
         <section className="Testimonial w-2/5 h-80 m-10  ">
+          <h1 className=" text-xl font-semibold mb-10 text-center">
+            Mentors Feedback
+          </h1>
           <TestimonialStack />
+        </section>
+
+        {/*--------------- Fifth Card ------------- */}
+        <section className="Achivements_And_Goals w-1/3 m-10 rounded-2xl bg-white drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out  ">
+          <h1 className=" text-lg text-center p-5 font-medium">
+            Recent Teachers
+          </h1>
+          <div>{recentClassesCard()}</div>
+          <div>
+            <recentClassesCard />
+          </div>
         </section>
       </div>
     </div>

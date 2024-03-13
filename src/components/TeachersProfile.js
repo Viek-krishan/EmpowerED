@@ -5,9 +5,27 @@ import { images } from "../utils/image";
 import { useState } from "react";
 import VideoPopUp from "./VideoPop";
 import { Play } from "lucide-react";
+import { disconnect } from "process";
+import { connect } from "http2";
 
 const TeachersProfile = () => {
   const [showVideoPopUp, setShowVideoPopUp] = useState(false);
+  const [pending, setPending] = useState(false);
+
+  const toggleConnect = () => {
+    if (pending) {
+      setPending(false);
+    } else {
+      setPending(true);
+    }
+  };
+
+  const Connect = () => {
+    console.log("Connected");
+  };
+  const DisConnect = () => {
+    console.log("Disconnect");
+  };
 
   const DetailDisplay = ({ LeftText, RightText }) => {
     return (
@@ -35,7 +53,15 @@ const TeachersProfile = () => {
               Highly motivated and results-oriented web developer with [number]
               years of experience building.
             </p>
-            <Buttons text={"Connect"} />
+            {pending === true ? (
+              <div className="h-fit w-fit " onClick={toggleConnect}>
+                <Buttons text={"Pending..."} toCall={DisConnect}/>
+              </div>
+            ) : (
+              <div className="h-fit w-fit " onClick={toggleConnect}>
+                <Buttons text={"Connect"} toCall={Connect} />
+              </div>
+            )}
           </section>
           <section className=" w-1/2 flex justify-center items-center">
             <div className="w-72 h-72 rounded-full m-10 flex overflow-hidden ">
@@ -105,7 +131,15 @@ const TeachersProfile = () => {
         </section>
 
         <div className=" flex justify-center items-center ">
-          <Buttons text={"Connect"} />
+          {pending === true ? (
+            <div className="h-fit w-fit " onClick={toggleConnect}>
+              <Buttons text={"Pending..."} />
+            </div>
+          ) : (
+            <div className="h-fit w-fit " onClick={toggleConnect}>
+              <Buttons text={"Connect"} />
+            </div>
+          )}
         </div>
       </div>
     </div>
