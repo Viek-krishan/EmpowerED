@@ -13,6 +13,9 @@ const Class = () => {
         <h1>Chats</h1>
         <h1>Chats</h1>
         <h1>Chats</h1>
+        <h1>Chats</h1>
+        <h1>Chats</h1>
+        <h1>Chats</h1>
       </div>
     );
   };
