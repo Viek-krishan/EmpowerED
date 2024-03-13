@@ -5,11 +5,16 @@ import ConnectMemberCard from "./ConnectedMemberCard";
 import Header from "./Header";
 
 const Class = () => {
-
   const [globalChats, setGlobalChats] = useState([]);
 
   const Chats = () => {
-    return <h1>Chats</h1>
+    return (
+      <div>
+        <h1>Chats</h1>
+        <h1>Chats</h1>
+        <h1>Chats</h1>
+      </div>
+    );
   };
 
   return (
@@ -40,6 +45,7 @@ const Class = () => {
 
         <div className="Messages h-[70vh]">
           <div className="ChatArea border h-5/6 w-5/6 m-10 rounded-lg">
+            <Chats />
             <Chats />
           </div>
         </div>
