@@ -14,18 +14,15 @@ const Teachers = () => {
 
   return (
     <div className="bg-[#f7f9fb] ">
-      <div className="bg-[#0c0b1e] pb-10 p-4 rounded-bl-[50px]">
-        <Header />
-      </div>
       <div className="BannerDiv h-40 m-16 mt-10 bg-[#1ad178] rounded-3xl flex justify-evenly items-center">
         <section>
           <h1 className="ml-5 font-extralight text-white ">
-            Home| Our Mentors
+            Home | Our Mentors
           </h1>
           <h1 className="ml-5 text-2xl font-semibold text-white mb-0 m-5 ">
-            EmpowerED has the qualified
+            EmpowerED has the best qualified
           </h1>
-          <h1 className="ml-5 text-2xl font-semibold text-white ">mentor</h1>
+          <h1 className="ml-5 text-2xl font-semibold text-white ">Mentors ..</h1>
         </section>
         <section>
           <img src={images[2].url} alt="img" className="w-52" />

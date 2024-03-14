@@ -1,20 +1,23 @@
-import Header from "./Header";
+
 import { images } from "../utils/image";
 import ValueCard from "./About_components";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const NavigateToFAQ = () => {
+    navigate("/FAQ");
+  };
+
   return (
     <div>
-      <section className="Header">
-        <div className=" bg-[#0c0b1e] p-2 rounded-b-3xl">
-          <Header />
-        </div>
-      </section>
+      <section className="Header"></section>
       <section className="landing_quote_and_illustration">
         <div className="text-black flex text-2xl p-10 justify-center items-center mb-5">
           <div>
             <h1 className="ml-10 text-6xl font-semibold pl-16">EmpowerED</h1>
-            <p className="ml-10 text-lg pl-16">Welcomes you to</p>
+            <p className="ml-10 pt-5 text-lg pl-16">Welcomes you to</p>
             <h1 className=" w-2/1 ml-10 text-4xl  p-16 rounded-full tracking-wider">
               Experience the power of one-on-one online tutoring. We tailor our
               sessions to your specific needs and goals.
@@ -92,8 +95,8 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="value_card">
-        <div className="flex p-5">
+      <section className="value_card flex flex-col justify-center items-center ">
+        <div className="flex p-5 w-4/5">
           <ValueCard
             title={"Learner First"}
             description={
@@ -107,7 +110,7 @@ const About = () => {
             }
           />
         </div>
-        <div className="flex p-5">
+        <div className="flex p-5 w-4/5 ">
           <ValueCard
             title={"Light The Passion, Live The Dream"}
             description={
@@ -156,8 +159,12 @@ const About = () => {
             <h1>Want to know more, Jump on to our FAQ section</h1>
           </div>
           <div className=" flex justify-center items-center m-10">
-            <button className="text-black font-semibold text-xl w-1/3 bg-[#1ad179] p-3 rounded-2xl ">
-              FAQ
+            <button
+              className="text-black font-semibold text-xl w-1/5 border-2 border-[#1ad179] p-3
+             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+              onClick={NavigateToFAQ}
+            >
+              FAQs
             </button>
           </div>
         </div>

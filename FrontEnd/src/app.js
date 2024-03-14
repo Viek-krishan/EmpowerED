@@ -12,10 +12,12 @@ import Register from "./components/Register";
 import Class from "./components/Class";
 import TeachersProfile from "./components/TeachersProfile";
 import StudentProfile from "./components/StudentProfile";
+import Header from "./components/Header";
 
 const AppLayout = () => {
   return (
     <div className="container w-full overflow-hidden text-white">
+      <Header/>
       <Outlet />
       <Footer />
     </div>

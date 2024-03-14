@@ -50,7 +50,6 @@ const Home = () => {
 
   return (
     <div className="Home w-full h-fit  ">
-      <Header />
       <div className="Home_Details h-[80vh] bg-[#0c0b1e] rounded-bl-[100px] border border-[#0c0b1e]">
         <section className="Text h-[50vh] m-10 mt-16 ">
           <h1 className="text-4xl relative left-32">EmpowerED</h1>

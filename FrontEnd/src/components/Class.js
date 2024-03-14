@@ -18,9 +18,6 @@ const Class = () => {
   return (
     <>
       <div className="text-white bg-gray-800">
-        <div className="bg-[#0c0b1e] pb-10 p-4 rounded-bl-[50px]">
-          <Header />
-        </div>
         <div className="Heading">
           <h1 className="text-3xl mx-10 text-center">Class Room</h1>
         </div>
