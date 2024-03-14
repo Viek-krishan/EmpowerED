@@ -15,12 +15,12 @@ const Header = () => {
   };
 
   return (
-    <div className="Header w-100% h-14 flex justify-around items-center bg-[#0c0b1e]">
+    <div className="Header w-100% h-16 p-7 flex justify-around items-center bg-[#0c0b1e]">
       <section className="Logo">
         <div>
           <Link to={`/`}>
             {/* <img src="#" alt="Logo" /> */}
-            <h1 className="">EmpowerED</h1>
+            <h1 className="text-3xl p-5">EmpowerED</h1>
           </Link>
         </div>
       </section>
@@ -28,10 +28,10 @@ const Header = () => {
         <nav className="w-full flex justify-around">
           <Link
             to={`/`}
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "/"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -39,10 +39,10 @@ const Header = () => {
           </Link>
           <Link
             to={`/teacher`}
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "/teacher"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -50,10 +50,10 @@ const Header = () => {
           </Link>
           <Link
             to={`/class`}
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "/class"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -61,10 +61,10 @@ const Header = () => {
           </Link>
           <Link
             to={`#`}
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "#"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -72,10 +72,10 @@ const Header = () => {
           </Link>
           <Link
             to={`/profile/student`}
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "/profile/student"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -83,10 +83,10 @@ const Header = () => {
           </Link>
           <Link
             to="/about"
-            className={`font-extralight text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
               location.pathname === "/about"
-                ? "underline decoration-[#1ad179] decoration-4"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}
           >
@@ -95,8 +95,9 @@ const Header = () => {
         </nav>
       </section>
       <section className="LogIn">
-        <div>
-          <Buttons text={"Log In"} size="xl" toCall={LogInPage} />
+        <div className="flex">
+          <Buttons text={"Sign Up"} size="light" toCall={LogInPage} />
+          <Buttons text={"Log In"} size="light" toCall={LogInPage} />
         </div>
       </section>
     </div>
