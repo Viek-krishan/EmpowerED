@@ -1,8 +1,10 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
-// import {UploadFileToCloudinary,
-//   DeleteFileFromCloudinary} from "../utils/Cloudinary.js"
+import {
+  UploadFileToCloudinary,
+  DeleteFileFromCloudinary,
+} from "../utils/Cloudinary.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
@@ -27,6 +29,18 @@ const generateAccessAndRefreshTokens = async (userId) => {
   }
 };
 
+function validateTimeRange(startTimeStr, endTimeStr) {
+  // Implement validation logic here (e.g., using a time zone library and time format checks)
+  const timeRegex = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/; // Basic time format validation
+
+  if (!timeRegex.test(startTimeStr) || !timeRegex.test(endTimeStr)) {
+    return false;
+  }
+
+  // Additional validation logic here (e.g., comparing start and end times, time zone handling)
+  return true;
+}
+
 const RegisterUser = asyncHandler(async (req, res) => {
   /*fetch data from frontend
 		  check for validation
@@ -46,10 +60,12 @@ const RegisterUser = asyncHandler(async (req, res) => {
     username,
     gradeLevel,
     learningStyle,
-    PrefClassTime,
+    startTime,
+    endTime,
     currentStatus,
     interest,
     age,
+    phone,
     board,
     password,
   } = req.body;
@@ -61,7 +77,6 @@ const RegisterUser = asyncHandler(async (req, res) => {
       username,
       gradeLevel,
       learningStyle,
-      PrefClassTime,
       currentStatus,
       board,
       password,
@@ -79,6 +94,16 @@ const RegisterUser = asyncHandler(async (req, res) => {
     );
 
   if (!email.includes("@")) throw new ApiError(400, "Please enter valid email");
+
+  if (!phone) throw new ApiError(400, "Phone no is important");
+
+  if (!startTime || !endTime) {
+    throw new ApiError(400, "Missing required fields (startTime, endTime)");
+  }
+
+  if (!validateTimeRange(startTime, endTime)) {
+    return res.status(400).json({ error: "Invalid time range format" });
+  }
 
   // checking for unique user by checking username or email is already registered or not
   const ExistedUser = await User.findOne({
@@ -109,13 +134,16 @@ const RegisterUser = asyncHandler(async (req, res) => {
     username,
     gradeLevel,
     learningStyle,
-    PrefClassTime,
+    preferredClassTime: {
+      startTime,
+      endTime,
+    },
+    phone,
     currentStatus,
     interest,
     age,
     board,
     avatar: Avatar.url,
-    coverImage: CoverImage?.url || "",
   });
 
   const CreatedUser = await User.findById(user._id).select(

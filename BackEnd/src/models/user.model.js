@@ -54,10 +54,10 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
-    prefClassTime: {
-      type: TimeRanges,
-      required: true,
-      trim: true,
+    preferredClassTime: {
+      type: { type: String, default: "timeRange" }, // Set default as 'timeRange'
+      startTime: { type: String }, // Store in string format (e.g., "HH:MM")
+      endTime: { type: String }, // Store in string format (e.g., "HH:MM")
     },
     avatar: {
       type: String, // Cloudenary URLs
