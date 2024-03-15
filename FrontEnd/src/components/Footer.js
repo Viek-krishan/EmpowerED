@@ -4,8 +4,11 @@ import { Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 const Footer = ({ bg, text1, text2 }) => {
   // const bgColor = bg || "black";
   // const bgColor = bg || "blue-100";
-  const bgColor = bg || "[#0c0b1e]";
-  const textCol1 = text1 || "white";
+  // const bgColor = bg || "[#0c0b1e]";
+  // const bgColor = bg || "[#1ad179]";
+  // const bgColor = bg || "white";
+  const bgColor = bg || "gray-100";
+  const textCol1 = text1 || "black";
   const textCol2 = text2 || "gray-700";
 
   return (
@@ -49,32 +52,32 @@ const Footer = ({ bg, text1, text2 }) => {
       <section className="Quick_Links pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
         <h1 className="text-xl font-medium mb-5">Quick Links</h1>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Home
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2`}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2`}
         >
           Our Mentors
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2`}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2`}
         >
           Class Room
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2`}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2`}
         >
           Catagory
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2`}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2`}
         >
           Your Profile
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2`}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2`}
         >
           About/FAQ
         </Link>
@@ -82,27 +85,27 @@ const Footer = ({ bg, text1, text2 }) => {
       <section className="Courses pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
         <h1 className="text-xl font-medium mb-5">Courses</h1>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Classroom Courses
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Virtual Classroom
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           E-Learning Courses
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Video Courses
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Offline Courses
         </Link>
@@ -110,32 +113,32 @@ const Footer = ({ bg, text1, text2 }) => {
       <section className="Community pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
         <h1 className="text-xl font-medium mb-5">Community</h1>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Learners
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Partners
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Developers
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Transactions
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Blogs
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Teaching Centre
         </Link>
@@ -143,32 +146,32 @@ const Footer = ({ bg, text1, text2 }) => {
       <section className="More pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
         <h1 className="text-xl font-medium mb-5">More</h1>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Press
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Investors
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Terms
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Privacy
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Help
         </Link>
         <Link
-          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-white decoration-2 underline-offset-2 `}
+          className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Contact
         </Link>

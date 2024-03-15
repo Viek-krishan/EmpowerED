@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
-import Header from "./Header";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -10,9 +9,6 @@ const Register = () => {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
       <div className="text-black flex bg-[#f7f9fb]">
         <section className="Illustration_side w-1/2 m-10">
           <div className="flex flex-col items-center">
@@ -26,8 +22,8 @@ const Register = () => {
           </div>
         </section>
         <section className="Form_side w-1/2">
-          <div className="Google_signIn mt-10 flex justify-center cursor-pointer hover:scale-110 hover:drop-shadow-xl transition duration-150 ease-in-out">
-            <h3 className="font-medium text-center w-72 border border-gray-400 m-5 px-10 py-5 rounded-lg bg-white">
+          <div className="Google_signIn mt-5 w-full flex justify-center items-center">
+            <h3 className="ffont-medium text-center w-72 border border-gray-400 m-5 px-10 py-5 rounded-lg bg-white hover:bg-[#1ad179] hover:scale-110 hover:drop-shadow-xl transition duration-150 ease-in-out cursor-pointer">
               Register with google
             </h3>
           </div>

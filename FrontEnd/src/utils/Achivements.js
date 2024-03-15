@@ -1,30 +1,27 @@
 export const achivements = [
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
      {
-        field: "Demo field",
+        field: "Demo field :",
         achivement:"Demo achived"  
      },
-     {
-        field: "Demo field",
-        achivement:"Demo achived"  
-     },
+     
 ]

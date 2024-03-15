@@ -13,9 +13,12 @@ const Header = () => {
   const LogInPage = () => {
     navigate("/login");
   };
+  const NavigateToRegister = () => {
+    navigate("/register");
+  };
 
   return (
-    <div className="Header w-100% h-16 p-7 flex justify-around items-center bg-[#0c0b1e]">
+    <div className="Header w-100% h-24 p-7 flex justify-around items-center bg-[#0c0b1e]">
       <section className="Logo">
         <div>
           <Link to={`/`}>
@@ -96,8 +99,8 @@ const Header = () => {
       </section>
       <section className="LogIn">
         <div className="flex">
-          <Buttons text={"Sign Up"} size="light" toCall={LogInPage} />
           <Buttons text={"Log In"} size="light" toCall={LogInPage} />
+          <Buttons text={"Register"} size="light" toCall={NavigateToRegister} />
         </div>
       </section>
     </div>

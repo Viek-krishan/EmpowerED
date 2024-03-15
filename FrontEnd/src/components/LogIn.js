@@ -10,33 +10,29 @@ const LogIn = () => {
 
   return (
     <>
-        <div>
-          <Header />
-        </div>
       <div className="text-black flex ">
         <section className="Illustration_side w-1/2 m-10">
-          <div className="flex flex-col items-center">
-            <h1 className="text-lg text-center">EmpowerED</h1>
-            <h1 className="text-4xl text-center font-bold w-60 ">
-              Welcome to EmpowerED Online Learning Platform
+          <div className="flex flex-col items-center mb-5 p-10 ">
+            <h1 className="text-4xl text-center font-bold w-full tracking-wider">
+              Welcome to <br></br>EmpowerED <br></br>An Online Learning Platform
             </h1>
           </div>
-          <div className=" flex justify-center m-5 ">
+          <div className=" flex justify-center p-5  ">
             <img src={images[3].url} alt="student" className="w-1/2" />
           </div>
         </section>
-        <section className="Form_side">
-          <div className="Google_signIn mt-10 flex justify-center cursor-pointer hover:scale-110 hover:drop-shadow-xl transition duration-150 ease-in-out">
-            <h3 className="font-medium text-center w-72 border border-gray-400 m-5 px-10 py-5 rounded-lg bg-white">
-              Sign in with google
+        <section className="Form_side  w-1/2 m-10">
+          <div className="Google_signIn mt-5 w-full flex justify-center items-center ">
+            <h3 className="font-medium text-center w-72 border border-gray-400 m-5 px-10 py-5 rounded-lg bg-white hover:bg-[#1ad179] hover:scale-110 hover:drop-shadow-xl transition duration-150 ease-in-out cursor-pointer">
+              Sign up with google
             </h3>
           </div>
 
-          <h1 className="text-center m-10 text-lg">
-            ---Sign in with your user Id ---
+          <h1 className="text-center mt-2 mb-5 text-lg">
+            ---Login in with your Registered User Id---
           </h1>
-          <form className="Form">
-            <div className="w-72 m-5">
+          <form className="Form  flex flex-col justify-center items-center">
+            <div className="w-72 m-5 ">
               <label
                 for="email"
                 className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
@@ -45,8 +41,8 @@ const LogIn = () => {
               </label>
               <input
                 type="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="john.doe@company.com"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
+                placeholder="empower.ed@company.com"
                 required
               />
             </div>
@@ -59,15 +55,15 @@ const LogIn = () => {
               </label>
               <input
                 type="password"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
                 placeholder="Password"
                 required
               />
             </div>
           </form>
 
-          <div className="Button">
-            <button className="bg-blue-400 w-72 mx-5 my-3 py-2 text-white text-lg rounded-2xl">
+          <div className="Button flex justify-center items-center">
+            <button className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110">
               Log In
             </button>
           </div>
