@@ -1,10 +1,82 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
+import { useState } from "react";
 
 const Register = () => {
+  // All Variables declaration for this components
   const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    fullName: "",
+    email: "",
+    username: "",
+    gradeLevel: "",
+    learningStyle: "",
+    startTime: "",
+    endTime: "",
+    currentStatus: "",
+    // interest,
+    age: Number,
+    phone: Number,
+    board: "",
+    password: "",
+  });
+
+  // All function defination
   const NavigateToLogIn = () => {
     navigate("/login");
+  };
+
+  let name, value;
+  const HandelInputs = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setUser({ ...user, [name]: value });
+  };
+
+  const Register = async (e) => {
+    e.preventDefault();
+    try {
+      const Response = await fetch(
+        "http://localhost:3000/api/v1/user/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      ).then((res) => {
+        console.log(res);
+        alert("Register successful. Login to enter");
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  //  Input component for creating form
+  const FormInput = ({ field, value, placeholder }) => {
+    return (
+      <div className="w-72 m-5">
+        <label
+          for={`${value}`}
+          className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
+        >
+          {`${value}`}
+        </label>
+        <input
+          type={`${field}`}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+          placeholder={`${placeholder}`}
+          name={`${value}`}
+          value={""}
+          onChange={HandelInputs}
+          required
+        />
+      </div>
+    );
   };
 
   return (
@@ -31,48 +103,26 @@ const Register = () => {
           <h1 className="text-center m-10 text-lg">--- Register ---</h1>
 
           <form className="Form flex flex-wrap justify-center">
-            <div className="Email w-72 m-5">
-              <label
-                for="email"
-                className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="john.doe@company.com"
-                required
-              />
-            </div>
-            <div className="UserName w-72 m-5">
-              <label
-                for="username"
-                className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
-              >
-                User name
-              </label>
-              <input
-                type="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="john.doe@company.com"
-                required
-              />
-            </div>
-            <div className="Age w-72 m-5">
-              <label
-                for="email"
-                className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
-              >
-                Age
-              </label>
-              <input
-                type="age"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="john.doe@company.com"
-                required
-              />
-            </div>
+            <FormInput
+              placeholder={"userId123"}
+              field={"text"}
+              value={"username"}
+            />
+            <FormInput
+              placeholder={"john sinha"}
+              field={"text"}
+              value={"full name"}
+            />
+            <FormInput
+              placeholder={"userEmail@gmail.com"}
+              field={"email"}
+              value={"email"}
+            />
+            <FormInput
+              placeholder={"Graduated"}
+              field={"text"}
+              value={"grade level"}
+            />
             <div className="Board w-72 m-5">
               <label
                 for="email"
@@ -92,29 +142,66 @@ const Register = () => {
                 </option>
               </select>
             </div>
-            <div className="Password w-72 m-5">
-              <label
-                for="password"
-                className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="Password"
-                required
-              />
+            <FormInput
+              placeholder={"visual learner"}
+              field={"text"}
+              value={"Learning Style"}
+            />
+            <FormInput
+              placeholder={"Working"}
+              field={"text"}
+              value={"current status"}
+            />
+            <FormInput
+              placeholder={"Programing"}
+              field={"text"}
+              value={"interests"}
+            />
+            <FormInput placeholder={"21"} field={"Number"} value={"age"} />
+            <FormInput
+              placeholder={"1236549870"}
+              field={"phone"}
+              value={"phone"}
+            />
+            <h1 className="text-lg text-center font-semibold w-full">
+              Prefered Timing
+            </h1>
+            <div className="flex">
+              <div className="relative">
+                <FormInput
+                  placeholder={"14:00"}
+                  field={"text"}
+                  value={"Starting Time"}
+                />
+                <select className="h-fit w-fit rounded-md absolute top-16 right-6 bg-[#f7f9fb]">
+                  <option value={"am"}>am</option>
+                  <option value={"pm"}>pm</option>
+                </select>
+              </div>
+              <div className="relative">
+                <FormInput
+                  placeholder={"20:00"}
+                  field={"text"}
+                  value={"Ending Time"}
+                />
+                <select className="h-fit w-fit rounded-md absolute top-16 right-6 bg-[#f7f9fb]">
+                  <option value={"am"}>am</option>
+                  <option value={"pm"}>pm</option>
+                </select>
+              </div>
             </div>
           </form>
 
-          <div className="Terms flex justify-center">
+          <div className="Terms&Condition flex justify-center">
             <input type="checkbox" id="agree" className="m-2" />
             <h3 className="text-center">I agreed to the terms & conditions</h3>
           </div>
 
-          <div className="Button flex justify-center">
-            <button className="bg-blue-400 w-72 mx-5 my-3 py-2 text-white text-lg rounded-2xl">
+          <div className="RegisterButton flex justify-center">
+            <button
+              className="bg-blue-400 w-72 mx-5 my-3 py-2 text-white text-lg rounded-2xl"
+              onClick={Register}
+            >
               Register
             </button>
           </div>
