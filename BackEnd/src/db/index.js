@@ -9,7 +9,7 @@ async function ConnectDB() {
 
     console.log(`DB connected successfully !! DB HOST: ${DB_Initialization}`);
   } catch (error) {
-    console.error(`MONGODB connection failed `, error);
+    console.error(`MONGODB connection failed from DB folder `, error);
     // throw error;
     process.exit(1); // Node.js native functnality for exiting any process. Node produce a "process" for every tast and we can mannully end that process
   }
