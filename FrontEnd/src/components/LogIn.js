@@ -1,11 +1,58 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
-import Header from "./Header";
+import { useState } from "react";
 
 const LogIn = () => {
+  // Utility variables
   const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+
+  // utility Functions
   const NavigateToRegister = () => {
     navigate("/register");
+  };
+
+  const HandelInputChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    // console.log(name, value);
+    setUser({ ...user, [name]: value });
+    // console.log(user);
+  };
+
+  const LogInUser = async (e) => {
+    e.preventDefault();
+    try {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append(
+        "Cookie",
+        "AccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY2ZjczZmVhNWIzYjMxMzRiOTI4ZTYiLCJlbWFpbCI6InZpdmVrQGdtYWlsLmNvbSIsImlhdCI6MTcxMDY4NjI5NSwiZXhwIjoxNzEwNzcyNjk1fQ.2L4b4c9RCbxF2kNAfCTPRSAAd4oS-QoKIt-w_rjoVN4; RefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY2ZjczZmVhNWIzYjMxMzRiOTI4ZTYiLCJpYXQiOjE3MTA2ODYyOTUsImV4cCI6MTcxMTU1MDI5NX0.sbnQtUDmmajoAe5SsCs6Yn_DUjAZeXPfdOeG-3u4nOY"
+      );
+
+      // const raw = JSON.stringify({
+      //   username: "vivek",
+      //   password: "papa",
+      // });
+
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify(user),
+        redirect: "follow",
+      };
+
+      fetch("http://localhost:3000/api/v1/user/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -43,6 +90,9 @@ const LogIn = () => {
                 type="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
                 placeholder="empower.ed@company.com"
+                name="username"
+                value={user.username}
+                onChange={HandelInputChange}
                 required
               />
             </div>
@@ -57,13 +107,19 @@ const LogIn = () => {
                 type="password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
                 placeholder="Password"
+                name="password"
+                value={user.password}
+                onChange={HandelInputChange}
                 required
               />
             </div>
           </form>
 
           <div className="Button flex justify-center items-center">
-            <button className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110">
+            <button
+              className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110"
+              onClick={LogInUser}
+            >
               Log In
             </button>
           </div>
