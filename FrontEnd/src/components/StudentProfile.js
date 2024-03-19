@@ -1,4 +1,3 @@
-import Header from "./Header";
 import { achivements } from "../utils/Achivements";
 import { TestimonialStack } from "../utils/Testimonial-card-stack";
 
@@ -36,7 +35,7 @@ const StudentProfile = () => {
     <div>
       <div className="Details flex flex-wrap text-black pb-20">
         {/*--------------- First Card ------------- */}
-        <section className="ShortCard w-1/4 mt-10 ml-24 text-white  bg-[#0c0b1e] border-2 rounded-2xl drop-shadow-3xl  flex flex-col justify-center items-center hover:scale-[1.02] transition duration-300 ease-in-out">
+        <section className="ShortCard w-1/4 mt-10 ml-24 text-white  bg-[#0c0b1e] border-2 rounded-2xl drop-shadow-xl  flex flex-col justify-center items-center hover:scale-[1.02] hover:drop-shadow-2xl transition duration-300 ease-in-out">
           <div className="DP w-40 h-40 rounded-full m-4 flex overflow-hidden ">
             <img
               src="https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/reezm4lyzhvivmocqowj"
@@ -56,7 +55,7 @@ const StudentProfile = () => {
         </section>
 
         {/*--------------- Second Card ------------- */}
-        <section className="All_Details w-3/5 h-fit m-10 ml-16 p-10 bg-white rounded-2xl drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out  border-2 border-[#0c0b1e] ">
+        <section className="All_Details w-3/5 h-fit m-10 ml-16 p-10 bg-white rounded-2xl drop-shadow-xl hover:drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out  border-2 border-[#0c0b1e] ">
           <div className="w-full">
             <DetailDisplay
               LeftText={"Full Name :"}
@@ -88,7 +87,7 @@ const StudentProfile = () => {
         </section>
 
         {/*--------------- Third Card ------------- */}
-        <section className="Achivements_And_Goals w-1/3 my-10 mx-36 p-8 rounded-2xl bg-white drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out border-2 border-[#0c0b1e] ">
+        <section className="Achivements_And_Goals w-1/3 my-10 mx-36 p-8 rounded-2xl bg-white drop-shadow-xl hover:drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out border-2 border-[#0c0b1e] ">
           <h1 className=" text-lg text-center border-b-2 mb-5 font-medium">
             All Achivements
           </h1>
@@ -105,7 +104,7 @@ const StudentProfile = () => {
         </section>
 
         {/*--------------- Fouth Card ------------- */}
-        <section className="Achivements_And_Goals w-1/3 p-5 my-10 mx-20 h-fit text-white rounded-2xl bg-[#0c0b1e] drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out border-2 ">
+        <section className="Achivements_And_Goals w-1/3 p-5 my-10 mx-20 h-fit text-white rounded-2xl bg-[#0c0b1e] drop-shadow-xl hover:drop-shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out border-2 ">
           <h1 className=" text-lg text-center p-2 font-medium border-b-2 border-[#1ad179]">
             Recent Teachers
           </h1>

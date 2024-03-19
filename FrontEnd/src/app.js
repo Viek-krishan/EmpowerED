@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -13,13 +14,16 @@ import Class from "./components/Class";
 import TeachersProfile from "./components/TeachersProfile";
 import StudentProfile from "./components/StudentProfile";
 import Header from "./components/Header";
+import appStore from "./utils/store";
 
 const AppLayout = () => {
   return (
     <div className="container w-full overflow-hidden text-white">
-      <Header/>
-      <Outlet />
-      <Footer />
+      <Provider store={appStore}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
     </div>
   );
 };
