@@ -11,6 +11,7 @@ const DragAndDropText = () => {
   const handleDrop = (event) => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
+    console.log("draged over");
 
     if (file.type.startsWith("text/")) {
       const reader = new FileReader();
@@ -22,6 +23,7 @@ const DragAndDropText = () => {
       alert("Please drag and drop a text file only.");
     }
   };
+
   const handleDropPDF = (event) => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
@@ -34,14 +36,14 @@ const DragAndDropText = () => {
   };
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative  border-2 border-red-800">
       <div
         className="w-full h-full z-10 flex justify-center items-center text-xl cursor-pointer   "
         id="dropzone"
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        {/* Drop your text file here! */}
+        {/* Drop your text file here! ----*/}
         <iframe
           src=""
           width="100%"
