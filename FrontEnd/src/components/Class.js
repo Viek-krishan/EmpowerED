@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Buttons from "../utils/Buttons";
 import { images } from "../utils/image";
 import ConnectMemberCard from "./ConnectedMemberCard";
-import DragAndDropText from "./DragDropText";
 import Chats from "./Chats";
 import InputBox from "./InputBox";
 
