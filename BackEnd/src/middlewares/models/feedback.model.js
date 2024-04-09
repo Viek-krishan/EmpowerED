@@ -12,7 +12,7 @@ const feedbackSchema = new Schema(
       ref: "User",
       required: true,
     },
-    Teacher: {
+    reciver: {
       type: Schema.Types.ObjectId,
       ref: "Teacher",
       required: true,
