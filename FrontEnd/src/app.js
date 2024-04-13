@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-custom-alert";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -20,6 +21,7 @@ const AppLayout = () => {
   return (
     <div className="container w-full overflow-hidden text-white">
       <Provider store={appStore}>
+        <ToastContainer floatingTime={3000} />
         <Header />
         <Outlet />
         <Footer />

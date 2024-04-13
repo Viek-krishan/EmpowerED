@@ -27,7 +27,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
     "@testing-library/react": "^14.0.0",
-    "axios": "^1.6.4",
+    "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "cosmiconfig": "^8.3.6",
     "framer-motion": "^11.0.6",
@@ -36,6 +36,7 @@
     "lucide-react": "^0.343.0",
     "pdfobject": "^2.3.0",
     "react": "^18.2.0",
+    "react-custom-alert": "^1.0.4",
     "react-dom": "^18.2.0",
     "react-player": "^2.15.0",
     "react-redux": "^8.1.3",

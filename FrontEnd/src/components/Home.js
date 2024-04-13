@@ -19,28 +19,28 @@ const Home = () => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/WhiteBoardAnimatedSVG.json"),
+      animationData: require("../assets/WhiteBoardAnimatedSVG.json"),
     });
     Lottie.loadAnimation({
       container: videoChat.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/VideoChatAnimationSVG.json"),
+      animationData: require("../assets/VideoChatAnimationSVG.json"),
     });
     Lottie.loadAnimation({
       container: learningPlatform.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/LearningPlatform.json"),
+      animationData: require("../assets/LearningPlatform.json"),
     });
     Lottie.loadAnimation({
       container: chatting.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/ChattingAnimationSVG.json"),
+      animationData: require("../assets/ChattingAnimationSVG.json"),
     });
   }, []);
 

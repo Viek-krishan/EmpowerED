@@ -32,7 +32,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="our_perspective">
+      <section className="our_perspective h-[60vh] ">
         <div className="flex justify-center items-center bg-blue-100  p-10 rounded-3xl ">
           <div>
             <div>
@@ -56,7 +56,7 @@ const About = () => {
                 potential.
               </p>
             </div>
-            <div className="flex justify-between ml-16 mr-16 mt-8 text-black">
+            <div className="flex justify-between ml-16 mr-16 mt-8 text-black ">
               <div>
                 <h1 className="bg-white p-9 text-2xl rounded-xl text-center hover:text-3xl ease-in-out duration-100">
                   <h1 className=" font-bold text-[#1ad178]">Envision</h1> the
