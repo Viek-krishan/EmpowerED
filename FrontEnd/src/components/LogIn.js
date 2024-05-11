@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { addUser, removeUser } from "../utils/userSlice";
+import { alertError, alertInfo } from "../utils/Alert";
+
 
 const LogIn = () => {
   // Utility variables
   const navigate = useNavigate();
+  const Dispatch = useDispatch()
 
   const [user, setUser] = useState({
     username: "",
@@ -52,6 +58,35 @@ const LogIn = () => {
         .catch((error) => console.error(error));
     } catch (e) {
       console.log(e);
+    }
+  };
+
+  const LogInFn = async () => {
+    try {
+      const data = JSON.stringify(user);
+      const url = "http://localhost:3000/api/v1/user/login";
+
+      const response = await axios.post(url, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      alertInfo(response.data.message);
+
+      // Store tokens in local storage using correct property names
+      localStorage.setItem("AccessToken", response.data.data.AccessToken);
+      localStorage.setItem("RefreshToken", response.data.data.RefreshToken);
+
+      // // Verify storage using the correct property names
+      console.log(localStorage.getItem("AccessToken"));
+
+      // Storing data inside store
+      Dispatch(removeUser());
+      Dispatch(addUser(response.data.data.user));
+    } catch (error) {
+      console.error(error);
+      alertError(error.message);
     }
   };
 
@@ -118,7 +153,7 @@ const LogIn = () => {
           <div className="Button flex justify-center items-center">
             <button
               className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110"
-              onClick={LogInUser}
+              onClick={LogInFn}
             >
               Log In
             </button>

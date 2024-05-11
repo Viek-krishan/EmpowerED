@@ -48,8 +48,13 @@ const About = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
       <section className="our_perspective">
         <div className="flex justify-center items-center bg-blue-100  p-10 rounded-xl ">
+=======
+      <section className="our_perspective h-[60vh] ">
+        <div className="flex justify-center items-center bg-blue-100  p-10 rounded-3xl ">
+>>>>>>> e11f0ad3bab5d930daea75ce102b12aed87205cf
           <div>
             <div>
               <h1 className="flex font-serif text-[#0c0b1e] text-4xl font-bold w-[100%] justify-center items-center">
@@ -72,7 +77,7 @@ const About = () => {
                 potential.
               </p>
             </div>
-            <div className="flex justify-between ml-16 mr-16 mt-8 text-black">
+            <div className="flex justify-between ml-16 mr-16 mt-8 text-black ">
               <div>
                 <h1 className="bg-white p-9 text-xl rounded-xl text-center shadow-sm shadow-black">
                   <h1 className=" font-bold text-[#1ad178]">Envision</h1> the
