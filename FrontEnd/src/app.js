@@ -16,6 +16,10 @@ import TeachersProfile from "./components/TeachersProfile";
 import StudentProfile from "./components/StudentProfile";
 import Header from "./components/Header";
 import appStore from "./utils/store";
+import TeacherRegisterPage from "./components/TeacherRegisterPage";
+import FAQ from "./components/FAQ";
+import TermsAndConditions from "./utils/TermsAndConditions";
+import Enquiry from "./components/Enquiry";
 
 const AppLayout = () => {
   return (
@@ -75,6 +79,22 @@ const appRouter = createBrowserRouter([
       {
         path: "/profile/student",
         element: <StudentProfile />,
+      },
+      {
+        path: "/teacherRegistration",
+        element: <TeacherRegisterPage />,
+      },
+      {
+        path: "/faqs",
+        element: <FAQ />,
+      },
+      {
+        path: "/termsandconditions",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "/enquiry",
+        element: <Enquiry/>,
       },
     ],
   },

@@ -129,7 +129,7 @@ const LogIn = () => {
             <h3 className="text-center">
               Don't have an account ?{" "}
               <button className="text-blue-400" onClick={NavigateToRegister}>
-                Sign in
+                Register Here
               </button>{" "}
             </h3>
           </div>
