@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import FoodCartSlice from "./FoodCartSlice";
+import searchSlice from "./searchSlice";
+import userSlice from "./userSlice";
 
-const store = configureStore({
-    reducer:{
-        FoodCart:FoodCartSlice,
-    }
+const appStore = configureStore({
+  reducer: {
+    search: searchSlice,
+    user: userSlice,
+  },
 });
 
-export default store;
+export default appStore;

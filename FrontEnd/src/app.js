@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-custom-alert";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -13,13 +15,21 @@ import Class from "./components/Class";
 import TeachersProfile from "./components/TeachersProfile";
 import StudentProfile from "./components/StudentProfile";
 import Header from "./components/Header";
+import appStore from "./utils/store";
+import TeacherRegisterPage from "./components/TeacherRegisterPage";
+import FAQ from "./components/FAQ";
+import TermsAndConditions from "./utils/TermsAndConditions";
+import Enquiry from "./components/Enquiry";
 
 const AppLayout = () => {
   return (
     <div className="container w-full overflow-hidden text-white">
-      <Header/>
-      <Outlet />
-      <Footer />
+      <Provider store={appStore}>
+        <ToastContainer floatingTime={3000} />
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
     </div>
   );
 };
@@ -69,6 +79,22 @@ const appRouter = createBrowserRouter([
       {
         path: "/profile/student",
         element: <StudentProfile />,
+      },
+      {
+        path: "/teacherRegistration",
+        element: <TeacherRegisterPage />,
+      },
+      {
+        path: "/faqs",
+        element: <FAQ />,
+      },
+      {
+        path: "/termsandconditions",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "/enquiry",
+        element: <Enquiry/>,
       },
     ],
   },

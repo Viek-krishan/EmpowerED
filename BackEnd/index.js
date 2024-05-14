@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
-import ConnectDB from "./db/index.js";
-import { app } from "./app.js";
+import ConnectDB from "./src/db/index.js";
+import { app } from "./src/app.js";
 
 dotenv.config({
-  path: "../env", // give the path of your env file which most will be at root directory
+  path: "./.env", // give the path of your env file which most will be at root directory
 });
 
 ConnectDB()

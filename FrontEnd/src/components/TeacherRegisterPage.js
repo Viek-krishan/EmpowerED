@@ -4,7 +4,7 @@ import { useState } from "react";
 import ApiError from "../../../BackEnd/src/utils/ApiError";
 import { ChevronDown, MousePointerClick } from "lucide-react";
 
-const Register = () => {
+const TeacherRegisterPage = () => {
   // All Variables declaration for this components
   const navigate = useNavigate();
 
@@ -44,6 +44,11 @@ const Register = () => {
     // const reader = new FileReader();
     // reader.readAsDataURL(file);
     // reader.onload = (e) => setAvatar(e.target.result);
+    console.log(event.target.files);
+    setAvatar(event.target.files[0]);
+    console.log(avatar);
+  };
+  const HandelVideo = (event) => {
     console.log(event.target.files);
     setAvatar(event.target.files[0]);
     console.log(avatar);
@@ -123,28 +128,8 @@ const Register = () => {
     }
   };
 
-  //  Input component for creating form
-  // const FormInput = ({ field, value, placeholder }) => {
-  //   return (
-  //     <div className="w-72 m-5">
-  //       <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-  //         {`${value}`}
-  //       </label>
-  //       <input
-  //         type={`${field}`}
-  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-  //         placeholder={`${placeholder}`}
-  //         name={`${value}`}
-  //         value={user[value]}
-  //         onChange={HandelInputChange}
-  //         required
-  //       />
-  //     </div>
-  //   );
-  // };
-
   return (
-    <>
+    <div>
       <div className="text-black flex bg-[#f7f9fb]">
         <section className="Illustration_side w-1/4 m-10 flex flex-col justify-center">
           <div className="flex flex-col items-center">
@@ -154,7 +139,7 @@ const Register = () => {
             </h1>
           </div>
           <div className=" flex justify-center m-5 ">
-            <img src={images[4].url} alt="student" className="w-full" />
+            <img src={images[3].url} alt="student" className="w-full" />
           </div>
         </section>
         <section className="Form_side w-3/4 p-10">
@@ -163,16 +148,16 @@ const Register = () => {
               Register with google
             </h3>
             <Link
-              to={"/teacherRegistration"}
+              to={"/register"}
               className="text-center text-lg flex justify-center items-center border-2 p-4 rounded-xl border-[#1ad179] hover:bg-[#1ad179] duration-200 ease-in-out hover:drop-shadow-xl"
             >
-              Click here to Register as Teacher{" "}
+              Click here to Register as Student{" "}
               <MousePointerClick className="m-2" />{" "}
             </Link>
           </div>
           <section className="flex justify-center items-center">
             <h1 className="text-center m-5 text-lg flex justify-center items-center border-b-2 border-[#1ad179]">
-              Register as Student{" "}
+              Register as Teacher{" "}
               <ChevronDown className="m-5 animate-bounce text-[#1ad179]" />{" "}
             </h1>
           </section>
@@ -248,26 +233,7 @@ const Register = () => {
                 required
               />
             </div> */}
-            <div className="Board w-72 m-5">
-              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-                Board
-              </label>
-              <select
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                name="board"
-                onChange={HandelInputChange}
-              >
-                <option value={""}>Choose your Board</option>
-                <option value={"CBSE"}>CBSE</option>
-                <option value={"ISC/ICSE"}>ISC/ICSE</option>
-                <option value={"State board"}>State board</option>
-                <option value={"IGCSE"}>Price: High-Low</option>
-                <option value={"NIOS"}>NIOS</option>
-                <option value={"International Baccalaureate"}>
-                  International Baccalaureate
-                </option>
-              </select>
-            </div>
+
             {/* <div className="learningStyle w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Learning Style
@@ -282,20 +248,7 @@ const Register = () => {
                 <option value={"Offline"}>Fast Learner</option>
               </select>
             </div> */}
-            <div className="currentStatus w-72 m-5">
-              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-                Current Qualification
-              </label>
-              <input
-                type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="Qualification"
-                name="currentStatus"
-                value={user.currentStatus}
-                onChange={HandelInputChange}
-                required
-              />
-            </div>
+
             <div className="age w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Age
@@ -309,6 +262,70 @@ const Register = () => {
                 onChange={HandelInputChange}
                 required
               />
+            </div>
+            <div className="Board w-72 m-5">
+              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
+                Current Qualification Level
+              </label>
+              <select
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+                name="board"
+                onChange={HandelInputChange}
+              >
+                <option value={""}>Select</option>
+                <option value={"Matriculation"}>Matriculation</option>
+                <option value={"Intermediate"}>Intermediate</option>
+                <option value={"Graduate"}>Graduate</option>
+                <option value={"Bachelor's"}>Bachelor's</option>
+                <option value={"Master's"}>Master's</option>
+                {/* <option value={"International Baccalaureate"}>
+                  International Baccalaureate
+                </option> */}
+              </select>
+            </div>
+            <div className="currentStatus w-72 m-5">
+              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
+                Employed / Unemployed
+              </label>
+              <select
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+                name="board"
+                onChange={HandelInputChange}
+              >
+                <option value={""}>Select</option>
+                <option value={"Employed"}>Employed</option>
+                <option value={"Unemployed"}>Unemployed</option>
+              </select>
+            </div>
+            <div className="GradeLevel w-72 m-5">
+              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
+                Bio
+              </label>
+              <textarea
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani resize-y overflow-x-hidden overflow-y-auto"
+                type="text"
+                placeholder="About Yourself"
+                required
+              ></textarea>
+            </div>
+            <div className="currentStatus w-72 m-5">
+              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
+                Fee Expectations
+              </label>
+              <select
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+                name="board"
+                onChange={HandelInputChange}
+              >
+                <option value={""}>Select</option>
+                <option value={"1000"}>Upto 1000</option>
+                <option value={"2000"}>Upto 2000</option>
+                <option value={"3000"}>Upto 3000</option>
+                <option value={"4000"}>Upto 4000</option>
+                <option value={"5000"}>Upto 5000</option>
+                <option value={"6000"}>Upto 6000</option>
+                <option value={"7000"}>Upto 7000</option>
+              </select>
             </div>
             <div className="password w-72 m-5">
               <label
@@ -329,6 +346,21 @@ const Register = () => {
             </div>
             <div className="ImageInput w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
+                Choose Introduction Video
+              </label>
+              <input
+                type="file"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
+                accept="video/*"
+                placeholder="Introduction Video"
+                name="password"
+                value={user.password}
+                onChange={HandelVideo}
+                required
+              />
+            </div>
+            <div className="ImageInput w-72 m-5">
+              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Choose Profile Pic
               </label>
               <input
@@ -342,11 +374,10 @@ const Register = () => {
                 required
               />
             </div>
-
             <h1 className="text-lg text-center font-semibold w-full">
-              Preferred Learning Timing
+              Preferred Teaching Timing
             </h1>
-            <div className="flex">
+            <div className="flex justify-center items-center">
               <div className="relative">
                 <div className="StartingTime w-72 m-5">
                   <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
@@ -366,6 +397,9 @@ const Register = () => {
                   <option value={"am"}>am</option>
                   <option value={"pm"}>pm</option>
                 </select>
+              </div>
+              <div className=" w-full flex ">
+                <h1 className="w-full">To</h1>
               </div>
               <div className="relative">
                 <div className="EndTiming w-72 m-5">
@@ -423,8 +457,8 @@ const Register = () => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Register;
+export default TeacherRegisterPage;

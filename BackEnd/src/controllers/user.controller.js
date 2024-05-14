@@ -67,7 +67,7 @@ const RegisterUser = asyncHandler(async (req, res) => {
     age,
     phone,
     board,
-    password,
+    passkey,
   } = req.body;
 
   if (
@@ -79,11 +79,12 @@ const RegisterUser = asyncHandler(async (req, res) => {
       learningStyle,
       currentStatus,
       board,
-      password,
+      passkey,
     ].some((field) => field?.trim() === "")
   ) {
     throw new ApiError(400, "all field are required");
   }
+
 
   if (!age) throw new ApiError(400, "Please enter age");
 
@@ -95,7 +96,7 @@ const RegisterUser = asyncHandler(async (req, res) => {
 
   if (!email.includes("@")) throw new ApiError(400, "Please enter valid email");
 
-  if (!phone) throw new ApiError(400, "Phone no is important");
+  if (!phone) throw new ApiError(400, "Phone number is important");
 
   if (!startTime || !endTime) {
     throw new ApiError(400, "Missing required fields (startTime, endTime)");
@@ -114,10 +115,12 @@ const RegisterUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Given username or email is already registered");
 
   // Taking Profile picture named as avatar
-  const avatarLocalPath = req.files.avatar[0]?.path;
+   console.log(req.files);
+  const avatarLocalPath = req.file?.path;
 
   if (!avatarLocalPath)
     throw new ApiError(400, "Avatar is required. Please upload");
+
 
   const Avatar = await UploadFileToCloudinary(avatarLocalPath);
 
@@ -130,7 +133,7 @@ const RegisterUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     fullName,
     email,
-    password,
+    password:passkey,
     username,
     gradeLevel,
     learningStyle,
@@ -193,7 +196,7 @@ const LogInUser = asyncHandler(async (req, res) => {
     user?._id
   );
 
-  const logedInUser = await User.findById(user._id).select(
+  const loggedInUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
 
@@ -210,7 +213,7 @@ const LogInUser = asyncHandler(async (req, res) => {
       new ApiResponse(
         201,
         {
-          user: logedInUser,
+          user: loggedInUser,
           RefreshToken,
           AccessToken,
         },

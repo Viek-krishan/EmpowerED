@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Buttons from "../utils/Buttons";
 import { useState } from "react";
+import { FilePenLine } from "lucide-react";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -99,8 +100,23 @@ const Header = () => {
       </section>
       <section className="LogIn">
         <div className="flex">
-          <Buttons text={"Log In"} size="light" toCall={LogInPage} />
-          <Buttons text={"Register"} size="light" toCall={NavigateToRegister} />
+          {/* <Buttons text={"Log In"} size="light" toCall={LogInPage} /> */}
+          {/* {console.log(location)} */}
+          <Link
+            to={"/login"}
+            className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium 
+            ${location.pathname === "/login" ? " bg-[#1ad179] " : ""}`}
+          >
+            Login
+          </Link>
+          <Link
+            to={"/register"}
+            className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium
+            ${location.pathname === "/register" ? " bg-[#1ad179] " : ""}`}
+          >
+            Register
+          </Link>
+          {/* <Buttons text={"Register"} size="light" toCall={NavigateToRegister} /> */}
         </div>
       </section>
     </div>

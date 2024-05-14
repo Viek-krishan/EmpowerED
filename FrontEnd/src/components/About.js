@@ -1,7 +1,6 @@
-
 import { images } from "../utils/image";
 import ValueCard from "./About_components";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const About = () => {
   const navigate = useNavigate();
@@ -15,15 +14,31 @@ const About = () => {
       <section className="Header"></section>
       <section className="landing_quote_and_illustration">
         <div className="text-black flex text-2xl p-10 justify-center items-center mb-5">
-          <div>
+          <div className=" w-[75%]">
             <h1 className="ml-10 text-6xl font-semibold pl-16">EmpowerED</h1>
             <p className="ml-10 pt-5 text-lg pl-16">Welcomes you to</p>
-            <h1 className=" w-2/1 ml-10 text-4xl  p-16 rounded-full tracking-wider">
+            <h1 className=" w-2/1 ml-10 text-2xl  p-16 rounded-full tracking-wider">
               Experience the power of one-on-one online tutoring. We tailor our
               sessions to your specific needs and goals.
             </h1>
+            <div className=" flex items-center m-10">
+              <Link
+                to={"/faqs"}
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
+             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+              >
+                FAQs
+              </Link>
+              <Link
+                to={"/enquiry"}
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
+             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+              >
+                Enquire Us
+              </Link>
+            </div>
           </div>
-          <div className=" justify-center items-center">
+          <div className=" justify-center items-center w-[25%]">
             <img
               src={images[5].url}
               alt="illustration"
@@ -32,11 +47,11 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="our_perspective">
+      <section className="our_perspective h-[60vh] ">
         <div className="flex justify-center items-center bg-blue-100  p-10 rounded-3xl ">
           <div>
             <div>
-              <h1 className="flex font-serif text-[#0c0b1e] text-6xl font-bold w-[100%] justify-center items-center">
+              <h1 className="flex font-serif text-[#0c0b1e] text-4xl font-bold w-[100%] justify-center items-center">
                 Our Perspective
               </h1>
             </div>
@@ -56,21 +71,21 @@ const About = () => {
                 potential.
               </p>
             </div>
-            <div className="flex justify-between ml-16 mr-16 mt-8 text-black">
+            <div className="flex justify-between ml-16 mr-16 mt-8 text-black ">
               <div>
-                <h1 className="bg-white p-9 text-2xl rounded-xl text-center hover:text-3xl ease-in-out duration-100">
+                <h1 className="bg-white p-9 text-xl rounded-xl text-center shadow-sm shadow-black">
                   <h1 className=" font-bold text-[#1ad178]">Envision</h1> the
                   future of education
                 </h1>
               </div>
               <div>
-                <h1 className="bg-white p-9 text-2xl rounded-xl text-center hover:text-3xl ease-in-out duration-100">
+                <h1 className="bg-white p-9 text-xl rounded-xl text-center shadow-sm shadow-black">
                   <h1 className=" font-bold text-[#1ad178] ">Enable</h1> access
                   to quality education
                 </h1>
               </div>
               <div>
-                <h1 className="bg-white p-9 text-2xl rounded-xl text-center hover:text-3xl ease-in-out duration-100">
+                <h1 className="bg-white p-9 text-xl rounded-xl text-center shadow-sm shadow-black">
                   <h1 className="text-[#1ad178] font-bold">Empower</h1>the
                   educational ecosystem
                 </h1>
@@ -125,7 +140,7 @@ const About = () => {
           />
         </div>
       </section>
-      <section className="founding_members">
+      <section className="founding_members ">
         <div className="Founding members text-black p-6 ">
           <div className="flex justify-center items-center ">
             <h1 className=" w-full text-center font-semibold text-5xl mb-5 underline decoration-[#1ad179]">
@@ -159,13 +174,13 @@ const About = () => {
             <h1>Want to know more, Jump on to our FAQ section</h1>
           </div>
           <div className=" flex justify-center items-center m-10">
-            <button
-              className="text-black font-semibold text-xl w-1/5 border-2 border-[#1ad179] p-3
+            <Link
+              to={"/faqs"}
+              className="text-black font-semibold text-xl text-center w-1/5 border-2 border-[#1ad179] p-3
              rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
-              onClick={NavigateToFAQ}
             >
               FAQs
-            </button>
+            </Link>
           </div>
         </div>
       </section>

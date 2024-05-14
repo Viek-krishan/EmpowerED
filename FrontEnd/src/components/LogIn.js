@@ -1,11 +1,60 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
-import Header from "./Header";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { addUser, removeUser } from "../utils/userSlice";
+import { alertError, alertInfo } from "../utils/Alert";
+
 
 const LogIn = () => {
+  // Utility variables
   const navigate = useNavigate();
+  const Dispatch = useDispatch()
+
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+
+  // utility Functions
   const NavigateToRegister = () => {
     navigate("/register");
+  };
+
+  const HandelInputChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    // console.log(name, value);
+    setUser({ ...user, [name]: value });
+    // console.log(user);
+  };
+
+  const LogInFn = async () => {
+    try {
+      const data = JSON.stringify(user);
+      const url = "http://localhost:3000/api/v1/user/login";
+
+      const response = await axios.post(url, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      alertInfo(response.data.message);
+
+      // Store tokens in local storage using correct property names
+      localStorage.setItem("AccessToken", response.data.data.AccessToken);
+      localStorage.setItem("RefreshToken", response.data.data.RefreshToken);
+
+      // Storing data inside store
+      Dispatch(removeUser());
+      Dispatch(addUser(response.data.data.user));
+      console.log(response.data.data.user);
+    } catch (error) {
+      console.error(error);
+      alertError(error.message);
+    }
   };
 
   return (
@@ -43,6 +92,9 @@ const LogIn = () => {
                 type="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
                 placeholder="empower.ed@company.com"
+                name="username"
+                value={user.username}
+                onChange={HandelInputChange}
                 required
               />
             </div>
@@ -57,13 +109,19 @@ const LogIn = () => {
                 type="password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani hover:drop-shadow-lg duration-150 ease-in-out"
                 placeholder="Password"
+                name="password"
+                value={user.password}
+                onChange={HandelInputChange}
                 required
               />
             </div>
           </form>
 
           <div className="Button flex justify-center items-center">
-            <button className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110">
+            <button
+              className="bg-white w-72 mx-5 my-3 py-2 text-black text-lg border border-gray-400 rounded-2xl drop-shadow-2xl hover:bg-[#1ad179] duration-150 ease-in-out hover:scale-110"
+              onClick={LogInFn}
+            >
               Log In
             </button>
           </div>
@@ -71,7 +129,7 @@ const LogIn = () => {
             <h3 className="text-center">
               Don't have an account ?{" "}
               <button className="text-blue-400" onClick={NavigateToRegister}>
-                Sign in
+                Register Here
               </button>{" "}
             </h3>
           </div>
