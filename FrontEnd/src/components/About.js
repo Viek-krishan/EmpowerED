@@ -1,4 +1,3 @@
-
 import { images } from "../utils/image";
 import ValueCard from "./About_components";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,22 +21,22 @@ const About = () => {
               Experience the power of one-on-one online tutoring. We tailor our
               sessions to your specific needs and goals.
             </h1>
-          <div className=" flex items-center m-10">
-            <Link
-              to={"/faqs"}
-              className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
+            <div className=" flex items-center m-10">
+              <Link
+                to={"/faqs"}
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
              rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
-            >
-              FAQs
-            </Link>
-            <Link
-              to={"/enquiry"}
-              className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
+              >
+                FAQs
+              </Link>
+              <Link
+                to={"/enquiry"}
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
              rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
-            >
-              Enquire Us
-            </Link>
-          </div>
+              >
+                Enquire Us
+              </Link>
+            </div>
           </div>
           <div className=" justify-center items-center w-[25%]">
             <img
@@ -48,13 +47,8 @@ const About = () => {
           </div>
         </div>
       </section>
-<<<<<<< HEAD
-      <section className="our_perspective">
-        <div className="flex justify-center items-center bg-blue-100  p-10 rounded-xl ">
-=======
       <section className="our_perspective h-[60vh] ">
         <div className="flex justify-center items-center bg-blue-100  p-10 rounded-3xl ">
->>>>>>> e11f0ad3bab5d930daea75ce102b12aed87205cf
           <div>
             <div>
               <h1 className="flex font-serif text-[#0c0b1e] text-4xl font-bold w-[100%] justify-center items-center">
