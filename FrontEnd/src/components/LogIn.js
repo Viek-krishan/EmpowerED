@@ -30,37 +30,6 @@ const LogIn = () => {
     // console.log(user);
   };
 
-  const LogInUser = async (e) => {
-    e.preventDefault();
-    try {
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append(
-        "Cookie",
-        "AccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY2ZjczZmVhNWIzYjMxMzRiOTI4ZTYiLCJlbWFpbCI6InZpdmVrQGdtYWlsLmNvbSIsImlhdCI6MTcxMDY4NjI5NSwiZXhwIjoxNzEwNzcyNjk1fQ.2L4b4c9RCbxF2kNAfCTPRSAAd4oS-QoKIt-w_rjoVN4; RefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY2ZjczZmVhNWIzYjMxMzRiOTI4ZTYiLCJpYXQiOjE3MTA2ODYyOTUsImV4cCI6MTcxMTU1MDI5NX0.sbnQtUDmmajoAe5SsCs6Yn_DUjAZeXPfdOeG-3u4nOY"
-      );
-
-      // const raw = JSON.stringify({
-      //   username: "vivek",
-      //   password: "papa",
-      // });
-
-      const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify(user),
-        redirect: "follow",
-      };
-
-      fetch("http://localhost:3000/api/v1/user/login", requestOptions)
-        .then((response) => response.json())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const LogInFn = async () => {
     try {
       const data = JSON.stringify(user);
@@ -78,12 +47,10 @@ const LogIn = () => {
       localStorage.setItem("AccessToken", response.data.data.AccessToken);
       localStorage.setItem("RefreshToken", response.data.data.RefreshToken);
 
-      // // Verify storage using the correct property names
-      console.log(localStorage.getItem("AccessToken"));
-
       // Storing data inside store
       Dispatch(removeUser());
       Dispatch(addUser(response.data.data.user));
+      console.log(response.data.data.user);
     } catch (error) {
       console.error(error);
       alertError(error.message);

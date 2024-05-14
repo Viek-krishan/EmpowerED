@@ -3,9 +3,9 @@ import fs from "fs";
 import ApiError from "./ApiError.js";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_SECRATE,
+  cloud_name: "dz1tape4y",
+  api_key: "681621269488143",
+  api_secret: "ZcwESjd413ZjKZKF73_f82taRC0",
 });
 
 const UploadFileToCloudinary = async (localFilePath) => {
@@ -29,7 +29,7 @@ const UploadFileToCloudinary = async (localFilePath) => {
 const DeleteFileFromCloudinary = async (publicId, type) => {
   if (!publicId) throw new ApiError(400, "file url is important");
 
- const Response = await cloudinary.api
+  const Response = await cloudinary.api
     .delete_resources([publicId], {
       type: "upload",
       resource_type: type,
