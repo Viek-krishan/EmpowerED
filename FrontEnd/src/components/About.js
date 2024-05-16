@@ -24,15 +24,13 @@ const About = () => {
             <div className=" flex items-center m-10">
               <Link
                 to={"/faqs"}
-                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
-             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3 rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
               >
                 FAQs
               </Link>
               <Link
                 to={"/enquiry"}
-                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3
-             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+                className="text-black font-semibold text-xl text-center ml-16 w-1/5 border-2 border-[#1ad179] p-3 rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
               >
                 Enquire Us
               </Link>
@@ -176,8 +174,7 @@ const About = () => {
           <div className=" flex justify-center items-center m-10">
             <Link
               to={"/faqs"}
-              className="text-black font-semibold text-xl text-center w-1/5 border-2 border-[#1ad179] p-3
-             rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+              className="text-black font-semibold text-xl text-center w-1/5 border-2 border-[#1ad179] p-3 rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
             >
               FAQs
             </Link>
