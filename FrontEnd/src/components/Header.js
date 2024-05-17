@@ -101,6 +101,7 @@ const Header = () => {
       <section className="LogIn">
         <div className="flex">
           {/* <Buttons text={"Log In"} size="light" toCall={LogInPage} /> */}
+          {/* {console.log(location)} */}
           <Link
             to={"/login"}
             className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium 
@@ -111,7 +112,7 @@ const Header = () => {
           <Link
             to={"/register"}
             className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium
-             ${location.pathname === "/register" ? " bg-[#1ad179] " : ""}`}
+            ${location.pathname === "/register" ? " bg-[#1ad179] " : ""}`}
           >
             Register
           </Link>
