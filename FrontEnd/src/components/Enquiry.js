@@ -29,7 +29,7 @@ const Enquiry = () => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/LearningPlatform.json"),
+      animationData: require("../assets/LearningPlatform.json"),
     });
   }, []);
 

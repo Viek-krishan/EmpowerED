@@ -16,28 +16,28 @@ const FAQ = () => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/Question_mark_FAQ.json"),
+      animationData: require("../assets/Question_mark_FAQ.json"),
     });
     Lottie.loadAnimation({
       container: Technical_question_faq.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/Technical_question_faq.json"),
+      animationData: require("../assets/Technical_question_faq.json"),
     });
     Lottie.loadAnimation({
       container: General_faq.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/General_faq.json"),
+      animationData: require("../assets/General_faq.json"),
     });
     Lottie.loadAnimation({
       container: Learning_and_logistics_faq.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/Learning_and_logistics_faq.json"),
+      animationData: require("../assets/Learning_and_logistics_faq.json"),
     });
   });
 
