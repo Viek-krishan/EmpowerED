@@ -128,6 +128,7 @@ const Footer = ({ bg, text1, text2 }) => {
           Developers
         </Link>
         <Link
+          to={"/payments"}
           className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
         >
           Transactions

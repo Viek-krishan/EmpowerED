@@ -20,6 +20,7 @@ import TeacherRegisterPage from "./components/TeacherRegisterPage";
 import FAQ from "./components/FAQ";
 import TermsAndConditions from "./utils/TermsAndConditions";
 import Enquiry from "./components/Enquiry";
+import PaymentService from "./utils/PaymentPage";
 
 const AppLayout = () => {
   return (
@@ -95,6 +96,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/enquiry",
         element: <Enquiry/>,
+      },
+      {
+        path: "/payments",
+        element: <PaymentService/>,
       },
     ],
   },
