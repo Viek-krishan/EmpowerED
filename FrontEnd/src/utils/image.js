@@ -60,6 +60,11 @@ export const images = [
     id: 13,
     url: "https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/xfvzs0xc5th8uzrhwnov",
   },
+  {
+    // DP demo
+    id: 14,
+    url: "https://res.cloudinary.com/dr5lcwbsx/image/upload/v1716143075/removal.ai__9a3098ae-3337-4482-b6f7-9fe0f82b11b8-premium-vector-_-register-access-login-password-internet-online-website-concept-flat-illustration_rey9jo.png",
+  },
 ];
 
 export const DemoVideo = [
