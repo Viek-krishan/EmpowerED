@@ -19,17 +19,17 @@ const Header = () => {
   };
 
   return (
-    <div className="Header w-100% h-24 p-7 flex justify-around items-center bg-[#0c0b1e]">
-      <section className="Logo">
+    <div className="Header w-100% h-24 flex justify-around items-center bg-[#0c0b1e]">
+      <section className="Logo w-1/4">
         <div>
           <Link to={`/`}>
             {/* <img src="#" alt="Logo" /> */}
-            <h1 className="text-3xl p-5">EmpowerED</h1>
+            <h1 className="text-3xl w-full text-center">EmpowerED</h1>
           </Link>
         </div>
       </section>
-      <section className="Navigator w-2/3">
-        <nav className="w-full flex justify-around">
+      <section className="Navigator w-1/2 flex justify-evenly">
+        <nav className="w-full flex justify-evenly">
           <Link
             to={`/`}
             className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
@@ -52,7 +52,7 @@ const Header = () => {
           >
             Our Mentors
           </Link>
-          <Link
+          {/* <Link
             to={`/class`}
             className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
@@ -62,8 +62,8 @@ const Header = () => {
             }`}
           >
             Class Room
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to={`#`}
             className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
@@ -73,7 +73,7 @@ const Header = () => {
             }`}
           >
             Catagory
-          </Link>
+          </Link> */}
           <Link
             to={`/profile/student`}
             className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
@@ -98,24 +98,28 @@ const Header = () => {
           </Link>
         </nav>
       </section>
-      <section className="LogIn">
-        <div className="flex">
+      <section className="LogIn w-1/4">
+        <div className="flex justify-evenly items-center">
           {/* <Buttons text={"Log In"} size="light" toCall={LogInPage} /> */}
           {/* {console.log(location)} */}
-          <Link
-            to={"/login"}
-            className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium 
+          <div>
+            <Link
+              to={"/login"}
+              className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium 
             ${location.pathname === "/login" ? " bg-[#1ad179] " : ""}`}
-          >
-            Login
-          </Link>
-          <Link
-            to={"/register"}
-            className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium
+            >
+              Login
+            </Link>
+          </div>
+          <div>
+            <Link
+              to={"/register"}
+              className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium
             ${location.pathname === "/register" ? " bg-[#1ad179] " : ""}`}
-          >
-            Register
-          </Link>
+            >
+              Register
+            </Link>
+          </div>
           {/* <Buttons text={"Register"} size="light" toCall={NavigateToRegister} /> */}
         </div>
       </section>
