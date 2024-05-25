@@ -7,7 +7,7 @@ const Footer = ({ bg, text1, text2 }) => {
   // const bgColor = bg || "[#0c0b1e]";
   // const bgColor = bg || "[#1ad179]";
   // const bgColor = bg || "white";
-  const bgColor = bg || "gray-100";
+  const bgColor = bg || "gray-200";
   const textCol1 = text1 || "black";
   const textCol2 = text2 || "gray-700";
 
@@ -50,7 +50,7 @@ const Footer = ({ bg, text1, text2 }) => {
         <h3 className="text-s">EmpowerED is registered</h3>
       </section>
       <section className="Quick_Links pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
-        <h1 className="text-xl font-medium mb-5">Quick Links</h1>
+        <h1 className="text-xl text-[#1ad179] font-medium mb-5">Quick Links</h1>
         <Link
           to={"/"}
           className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
@@ -89,7 +89,7 @@ const Footer = ({ bg, text1, text2 }) => {
         </Link>
       </section>
       <section className="Courses pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
-        <h1 className="text-xl font-medium mb-5">Courses</h1>
+        <h1 className="text-xl text-[#1ad179] font-medium mb-5">Courses</h1>
         <Link
           to={"/class"}
           className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
@@ -122,7 +122,7 @@ const Footer = ({ bg, text1, text2 }) => {
         </Link>
       </section>
       <section className="Community pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
-        <h1 className="text-xl font-medium mb-5">Community</h1>
+        <h1 className="text-xl text-[#1ad179] font-medium mb-5">Community</h1>
         <Link
           to={"/about"}
           className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
@@ -161,7 +161,7 @@ const Footer = ({ bg, text1, text2 }) => {
         </Link>
       </section>
       <section className="More pl-5 pt-10 flex flex-col border-l-2 border-gray-500">
-        <h1 className="text-xl font-medium mb-5">More</h1>
+        <h1 className="text-xl text-[#1ad179] font-medium mb-5">More</h1>
         <Link
           to={"#"}
           className={`m-2 text-lg font-extralight text-${textCol2} hover:underline decoration-black decoration-2 underline-offset-2 `}
