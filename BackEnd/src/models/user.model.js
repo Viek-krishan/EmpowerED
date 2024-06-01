@@ -31,12 +31,12 @@ const userSchema = new Schema(
     },
     gradeLevel: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     learningStyle: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     currentStatus: {

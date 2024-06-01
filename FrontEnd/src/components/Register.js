@@ -3,6 +3,7 @@ import { images } from "../utils/image";
 import { useState } from "react";
 import ApiError from "../../../BackEnd/src/utils/ApiError";
 import { ChevronDown, MousePointerClick } from "lucide-react";
+import { alertError, alertSuccess } from "../utils/Alert";
 
 const Register = () => {
   // All Variables declaration for this components
@@ -13,8 +14,8 @@ const Register = () => {
     fullName: "",
     email: "",
     username: "",
-    gradeLevel: "",
-    learningStyle: "",
+    // gradeLevel: "",
+    // learningStyle: "",
     startTime: "",
     endTime: "",
     currentStatus: "",
@@ -40,10 +41,6 @@ const Register = () => {
   };
 
   const HandelImage = (event) => {
-    // const file = event.target.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onload = (e) => setAvatar(e.target.result);
     console.log(event.target.files);
     setAvatar(event.target.files[0]);
     console.log(avatar);
@@ -116,8 +113,14 @@ const Register = () => {
 
       fetch("http://localhost:3000/api/v1/user/register", requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+        .then((result) => {
+          console.log(result);
+          alertSuccess(result.message);
+        })
+        .catch((error) => {
+          console.error(error);
+          alertError(error.message);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -289,7 +292,7 @@ const Register = () => {
               <input
                 type="text"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="Qualification"
+                placeholder="Graduated"
                 name="currentStatus"
                 value={user.currentStatus}
                 onChange={HandelInputChange}
