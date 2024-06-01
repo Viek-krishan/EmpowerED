@@ -80,7 +80,7 @@ const Home = () => {
               </Link>
             </div>
             <div className="ScrollToTeachersPage text-white flex justify-center">
-              <Buttons text={"Scroll to Teachers"} toCall={scrollToTeachers} />
+              <Buttons text={"Connect to Teachers"} toCall={scrollToTeachers} />
             </div>
             <div>
               <Link

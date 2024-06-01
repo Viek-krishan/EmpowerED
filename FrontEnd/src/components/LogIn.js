@@ -50,7 +50,6 @@ const LogIn = () => {
       // Storing data inside store
       Dispatch(removeUser());
       Dispatch(addUser(response.data.data.user));
-      console.log(response.data.data.user);
     } catch (error) {
       console.error(error);
       alertError(error.message);

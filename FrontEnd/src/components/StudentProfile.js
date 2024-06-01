@@ -131,7 +131,10 @@ const StudentProfile = () => {
           <h1 className=" text-lg text-center p-2 font-medium border-b-2 border-[#1ad179]">
             Recent Teachers
           </h1>
-          <div>{recentClassesCard()}</div>
+          {/* <div>{recentClassesCard()}</div> */}
+          <div>
+            Not connected
+          </div>
         </section>
 
         {/*--------------- Fifth Card ------------- */}

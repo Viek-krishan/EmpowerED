@@ -27,19 +27,19 @@ const TeachersProfile = () => {
       <div className="bg-[#f7f9fb]">
         <div className="Image_And_Bio bg-[#f7f9fb] flex justify-center items-center">
           <section className="Title_And_Bio w-1/2 text-black  flex flex-col justify-center items-center">
-            <h1 className="text-4xl text-center m-6">Vivek Krishan</h1>
+            <h1 className="text-4xl text-center m-6">Educator's name</h1>
             <p className="Sort_Bio w-2/3">
-              Highly motivated and results-oriented web developer with [number]
+              Highly motivated and results-oriented web developer with X
               years of experience building.
             </p>
             <Buttons text={"Connect"} />
           </section>
           <section className=" w-1/2 flex justify-center items-center">
-            <div className="w-72 h-72 rounded-full m-10 flex overflow-hidden ">
+            <div className="w-72 h-72 rounded-full m-10 flex overflow-hidden drop-shadow-lg hover:drop-shadow-2xl ">
               <img
-                src="https://res.cloudinary.com/dur4pixxs/image/upload/f_auto,q_auto/reezm4lyzhvivmocqowj"
+                src={images[8].url}
                 alt=""
-                className="w-full"
+                className="hover:scale-110 transition duration-150"
               />
             </div>
           </section>
@@ -47,7 +47,6 @@ const TeachersProfile = () => {
         <section className="Quailification m-auto text-black p-4 w-2/3 rounded-2xl bg-white">
           <h1 className="text-3xl font-semibold text-center">About Mentor</h1>
           <div className="AllDetails w-full flex flex-col  justify-evenly">
-            <h1 className="text-xl font-semibold mx-32">Quailification</h1>
             <div>
               {ListOfQuailification.map((item) => {
                 return (
