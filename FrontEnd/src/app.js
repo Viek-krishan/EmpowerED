@@ -21,6 +21,8 @@ import FAQ from "./components/FAQ";
 import TermsAndConditions from "./utils/TermsAndConditions";
 import Enquiry from "./components/Enquiry";
 import PaymentService from "./utils/PaymentPage";
+import FormPage from "./components/whiteBoard/forms";
+import CreateRoom from "./components/whiteBoard/forms/creatingRoom";
 
 const AppLayout = () => {
   return (
@@ -48,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/teacher",
         element: <Teachers />,
+      },
+      {
+        path: "/room",
+        element: <FormPage />,
       },
       {
         path: "/class",

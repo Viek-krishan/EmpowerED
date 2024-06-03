@@ -78,6 +78,17 @@ const Header = () => {
           >
             Your Profile
           </Link>
+          <Link
+            to={`/room`}
+            className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
+            ${
+              location.pathname === "/profile/student"
+                ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
+                : ""
+            }`}
+          >
+            Create room
+          </Link>
         </nav>
       </section>
       {/* user profile / Log in or Register button */}
@@ -88,7 +99,11 @@ const Header = () => {
             onClick=""
           >
             <div className="w-10 h-10 rounded-full overflow-hidden border">
-              <img src={studentDetails[0]?.avatar} alt="dp" className="w-full h-full" />
+              <img
+                src={studentDetails[0]?.avatar}
+                alt="dp"
+                className="w-full h-full"
+              />
             </div>
             <h1>{studentDetails[0]?.username}</h1>
           </button>
