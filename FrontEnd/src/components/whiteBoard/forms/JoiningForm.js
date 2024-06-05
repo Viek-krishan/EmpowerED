@@ -5,7 +5,7 @@ const JoinRoom = () => {
       <div className="NameInput">
         <input
           type="text"
-          className="m-10 border rounded-md h-9 w-2/3 "
+          className="m-10 p-2 border rounded-md h-9 w-2/3 "
           placeholder="Enter your name"
         />
       </div>
@@ -13,7 +13,7 @@ const JoinRoom = () => {
         <input
           type="text"
           placeholder="Enter the room code"
-          className="ml-10 m-1 border w-2/3 h-9 rounded-md"
+          className="ml-10 p-2 m-1 border w-2/3 h-9 rounded-md"
         />
       </div>
     </form>

@@ -56,6 +56,10 @@ const appRouter = createBrowserRouter([
         element: <FormPage />,
       },
       {
+        path: "/room/:roomId",
+        element: <Class />,
+      },
+      {
         path: "/class",
         element: <Class />,
       },

@@ -82,7 +82,7 @@ const Header = () => {
             to={`/room`}
             className={`font-light text-lg hover:scale-110 hover:font-medium transition duration-150 ease-in-out 
             ${
-              location.pathname === "/profile/student"
+              location.pathname === "/room"
                 ? "underline decoration-[#1ad179] decoration-2 underline-offset-4"
                 : ""
             }`}

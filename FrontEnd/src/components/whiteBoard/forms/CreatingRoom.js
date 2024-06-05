@@ -5,7 +5,7 @@ const CreateRoom = () => {
       <div className="NameInput">
         <input
           type="text"
-          className="m-10 border rounded-md h-9 w-2/3 "
+          className="m-10 p-2 border rounded-md h-9 w-2/3 "
           placeholder="Enter your name"
         />
       </div>
@@ -13,8 +13,10 @@ const CreateRoom = () => {
         <input
           type="text"
           placeholder="generate your room code here"
-          className="ml-10 m-1 border w-1/2 h-9 rounded-md"
+          className="ml-10 p-2 m-1 border w-1/2 h-9 rounded-md"
+          disabled
         />
+
         <button className="bg-white p-2 border rounded-xl mx-2 text-black drop-shadow-xl hover:bg-green-500 hover:text-white hover:scale-105 transition duration-150 hover:drop-shadow-2xl">
           Generate
         </button>
