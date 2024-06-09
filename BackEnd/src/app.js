@@ -18,15 +18,15 @@ io.on("connection", (socket) => {
   socket.on("userJoined", (data) => {
     const { name, roomId, userId, host, presenter } = data;
     socket.join(roomId);
-    socket.emit("userIsJoined", {success: true})
+    socket.emit("userIsJoined", { success: true });
   });
 });
 
 // routers
 import userRouter from "./routes/user.routes.js";
-import subscriptionRouter from "./routes/subscription.routes.js";
+import teacherRouter from "./routes/teacher.routes.js";
 
 app.use("/api/v1/user", userRouter);
-app.use("/api/v1/subscription", subscriptionRouter);
+app.use("/api/v1/teacher", teacherRouter);
 
 export { app };

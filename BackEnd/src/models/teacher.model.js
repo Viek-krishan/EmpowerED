@@ -42,7 +42,8 @@ const teacherSchema = new Schema(
       trim: true,
     },
     isEmployed: {
-      type: Boolean,
+      type: String,
+      trim: true,
     },
     preferredClassTime: {
       type: { type: String, default: "timeRange" }, // Set default as 'timeRange'
@@ -73,18 +74,18 @@ const teacherSchema = new Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", async function (next) {
+teacherSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
-userSchema.methods.isPasswordCorrect = async function (password) {
+teacherSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-userSchema.methods.GenerateAccessToken = function () {
+teacherSchema.methods.GenerateAccessToken = function () {
   return Jwt.sign(
     {
       _id: this._id,
@@ -97,7 +98,7 @@ userSchema.methods.GenerateAccessToken = function () {
   );
 };
 
-userSchema.methods.GenerateRefreshToken = function () {
+teacherSchema.methods.GenerateRefreshToken = function () {
   return Jwt.sign(
     {
       _id: this._id,

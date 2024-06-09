@@ -32,19 +32,20 @@ const connectionOption = {
   transports: ["websocket"],
 };
 
-const socket = io(server, connectionOption);
+// const socket = io(server, connectionOption);
 // const [user, setUser] = useState(null);
+const socket = 5;
 
 const AppLayout = () => {
-  useEffect(() => {
-    socket.on("userIsJoined", (data) => {
-      if (data.success) {
-        console.log("user Joined");
-      } else {
-        console.log("user joining failed");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   socket.on("userIsJoined", (data) => {
+  //     if (data.success) {
+  //       console.log("user Joined");
+  //     } else {
+  //       console.log("user joining failed");
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="container w-full overflow-hidden text-white">

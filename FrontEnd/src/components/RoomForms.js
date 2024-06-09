@@ -46,7 +46,7 @@ export const CreateRoom = ({ uuid, socket }) => {
 
     // setUser(RoomData);
 
-    socket.emit("userJoined", RoomData);
+    // socket.emit("userJoined", RoomData);
   };
 
   return (

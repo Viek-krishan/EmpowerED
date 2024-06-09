@@ -1,8 +1,8 @@
-import { Teacher } from "../models/teacher.model";
-import ApiError from "../utils/ApiError";
-import ApiResponse from "../utils/ApiResponse";
-import { UploadFileToCloudinary } from "../utils/Cloudinary";
-import asyncHandler from "../utils/asyncHandler";
+import { Teacher } from "../models/teacher.model.js";
+import ApiError from "../utils/ApiError.js";
+import ApiResponse from "../utils/ApiResponse.js";
+import { UploadFileToCloudinary } from "../utils/Cloudinary.js";
+import asyncHandler from "../utils/asyncHandler.js";
 
 const generateAccessAndRefreshTokens = async (userId) => {
   try {
@@ -63,6 +63,8 @@ const RegisterTeacher = asyncHandler(async (req, res) => {
     passkey,
   } = req.body;
 
+  console.log(req);
+
   if (
     [
       fullName,
@@ -106,7 +108,7 @@ const RegisterTeacher = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Given username or email is already registered");
 
   // Taking Profile picture named as avatar
-  console.log(req.files);
+//   console.log(req.files);
   const avatarLocalPath = req.files?.avatar[0]?.path;
   const introVideoLocalPath = req.files?.introVideo[0]?.path;
 
@@ -129,6 +131,8 @@ const RegisterTeacher = asyncHandler(async (req, res) => {
       401,
       "Something went wrong with Introduction Video!!, Please upload once again"
     );
+    
+    console.log(Avatar, IntroVideo);
 
   const teacher = await Teacher.create({
     fullName,

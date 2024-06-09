@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
 import { useState } from "react";
 import { ChevronDown, MousePointerClick } from "lucide-react";
+import { alertSuccess, alertError, alertInfo } from "../utils/Alert";
 
 const TeacherRegisterPage = () => {
   // All Variables declaration for this components
@@ -17,8 +18,8 @@ const TeacherRegisterPage = () => {
     isEmployed: "",
     startTime: "",
     endTime: "",
-    bio:"",
-    fees:Number,
+    bio: "",
+    fees: Number,
     age: Number,
     phone: Number,
     passkey: "",
@@ -36,11 +37,11 @@ const TeacherRegisterPage = () => {
     setUser({ ...user, [name]: value });
   };
 
-   const HandelImage = (event) => {
-     console.log(event.target.files);
-     setAvatar(event.target.files[0]);
-     console.log(avatar);
-   };
+  const HandelImage = (event) => {
+    console.log(event.target.files);
+    setAvatar(event.target.files[0]);
+    console.log(avatar);
+  };
 
   const HandelVideo = (event) => {
     console.log(event.target.files);
@@ -73,7 +74,7 @@ const TeacherRegisterPage = () => {
       formData.append("avatar", avatar);
     }
     if (introVideo) {
-      if (!avatar.type.match("video/*")) {
+      if (!introVideo.type.match("video/*")) {
         console.error("Invalid file type. Please select an video.");
         return null; // Return null to indicate an error (optional)
       }
@@ -93,7 +94,10 @@ const TeacherRegisterPage = () => {
         redirect: "follow",
       };
 
-      fetch("http://localhost:3000/api/v1/teacher/register", requestOptions)
+      await fetch(
+        "http://localhost:3000/api/v1/teacher/register",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

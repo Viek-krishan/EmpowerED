@@ -7,7 +7,7 @@ import { VerifyUser } from "../middlewares/auth.middleware.js";
 const router = Router();
 
 // Register route
-router.route("/register/teacher").post(
+router.route("/register").post(
   upload.fields([
     {
       name: "avatar",
@@ -20,7 +20,7 @@ router.route("/register/teacher").post(
   ]),
   RegisterTeacher
 );
-router.route("/login/teacher").post(LogInTeacher);
+router.route("/login").post(LogInTeacher);
 
 // secure routes
 
