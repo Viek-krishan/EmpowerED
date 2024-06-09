@@ -74,33 +74,7 @@ const Register = () => {
     return formData;
   }
 
-  // const Register = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formData = createFormData(user, avatar);
-  //     user.avatar = avatar;
-
-  //     console.log(user);
-
-  //     const Response = await fetch(
-  //       "http://localhost:3000/api/v1/user/register",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     ).then((res) => {
-  //       console.log(res);
-  //       // alert(res.message);
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
+  
   const Register = async () => {
     try {
       const formdata = await createFormData(user, avatar);
@@ -126,26 +100,7 @@ const Register = () => {
     }
   };
 
-  //  Input component for creating form
-  // const FormInput = ({ field, value, placeholder }) => {
-  //   return (
-  //     <div className="w-72 m-5">
-  //       <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-  //         {`${value}`}
-  //       </label>
-  //       <input
-  //         type={`${field}`}
-  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-  //         placeholder={`${placeholder}`}
-  //         name={`${value}`}
-  //         value={user[value]}
-  //         onChange={HandelInputChange}
-  //         required
-  //       />
-  //     </div>
-  //   );
-  // };
-
+  
   return (
     <>
       <div className="text-black flex bg-[#f7f9fb]">

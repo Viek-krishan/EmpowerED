@@ -1,8 +1,6 @@
-import CreateRoom from "../../CreateRoom";
-import JoinRoom from "../../RoomForms";
+import { CreateRoom, JoinRoom } from "./RoomForms";
 
-
-const FormPage = () => {
+const FormPage = ({ socket }) => {
   const uuid = () => {
     let Rand = () => {
       return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
@@ -27,7 +25,7 @@ const FormPage = () => {
 
   return (
     <div className="flex justify-around">
-      <CreateRoom uuid = {uuid} />
+      <CreateRoom uuid={uuid} socket={socket}  />
       <JoinRoom />
     </div>
   );

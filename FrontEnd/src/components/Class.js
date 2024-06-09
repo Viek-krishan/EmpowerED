@@ -50,6 +50,8 @@ const Class = () => {
   const Undo = () => {
     setHistory((prevHis) => [...prevHis, elements[elements.length - 1]]);
 
+    if (elements.length === 1) setElements([]);
+
     setElements((prevElement) => prevElement.slice(0, prevElement.length - 1));
   };
 
