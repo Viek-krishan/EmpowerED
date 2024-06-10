@@ -1,6 +1,12 @@
 import { useSelector } from "react-redux";
 import { achivements } from "../utils/Achivements";
 import { TestimonialStack } from "../utils/Testimonial-card-stack";
+import { Link } from "react-router-dom";
+import Lottie from "lottie-web";
+
+import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { images } from "../utils/image";
 
 const StudentProfile = () => {
   // Constants
@@ -36,6 +42,18 @@ const StudentProfile = () => {
       </div>
     );
   };
+
+    const Learning_and_logistics_faq = useRef(null);
+
+  useEffect(() => {
+    Lottie.loadAnimation({
+      container: Learning_and_logistics_faq.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../assets/Learning_and_logistics_faq.json"),
+    });
+  });
 
   return studentDetails.length === 1 ? (
     <div>
@@ -113,7 +131,10 @@ const StudentProfile = () => {
           <h1 className=" text-lg text-center p-2 font-medium border-b-2 border-[#1ad179]">
             Recent Teachers
           </h1>
-          <div>{recentClassesCard()}</div>
+          {/* <div>{recentClassesCard()}</div> */}
+          <div>
+            Not connected
+          </div>
         </section>
 
         {/*--------------- Fifth Card ------------- */}
@@ -126,8 +147,39 @@ const StudentProfile = () => {
       </div>
     </div>
   ) : (
-    <div>
-      <h1 className="text-black">data not found</h1>
+    <div className="bg-[#0c0b1e]">
+      {/* <h1 className="text-black">data not found</h1> */}
+      <div className="flex w-full">
+        <section className="login_or_register text-black flex flex-col w-1/2  items-center justify-center ">
+          <h1 className="w-full text-center text-5xl font-medium p-5 text-[#1ad179] ">
+            You are not Logged in
+          </h1>
+          <h1 className="w-full text-center text-xl font-light p-5 text-white ">
+            Kindly Login Or Register to view your Profile.
+          </h1>
+          <div className="w-full flex items-center justify-evenly p-5 ">
+            <Link
+              to={"/login"}
+              className="text-white hover:text-black font-semibold text-xl text-center w-1/5 border-2 border-[#4299EA] hover:border-[#1ad179]  p-3 rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+            >
+              Login
+            </Link>
+            <Link
+              to={"/register"}
+              className="text-white hover:text-black font-semibold text-xl text-center w-1/5 border-2 border-[#4299EA] hover:border-[#1ad179] p-3 rounded-2xl hover:bg-[#1ad179] duration-150 ease-in-out drop-shadow-2xl hover:scale-110 "
+            >
+              Register
+            </Link>
+          </div>
+        </section>
+        <section className="image flex w-1/2 justify-center items-center">
+          <div
+            className="w-3/4 flex justify-center items-center"
+            ref={Learning_and_logistics_faq}
+          ></div>
+          {/* <img src={images[13].url} className="w-1/2" /> */}
+        </section>
+      </div>
     </div>
   );
 };

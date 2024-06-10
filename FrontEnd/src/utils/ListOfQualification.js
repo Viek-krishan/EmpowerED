@@ -2,38 +2,33 @@ export const ListOfQuailification = [
   {
     id: 1,
     section: "Highest Education Level",
-    answer: "Persuing B.Tech in Computer science From Usha Martin University",
-  },
-  {
-    id: 2,
-    section: "Subject Expertise",
-    answer:
-      "I have completed my Masters in Maths and I have also completed my teaching training from some collage",
+    answer: "Enter the highest level of education you have completed",
   },
   {
     id: 3,
     section: "Year of Experience",
-    answer: "I have been teaching for last 5 years",
+    answer: "Enter your year of experience",
   },
   {
     id: 5,
     section: "Teaching Style",
     answer:
-      "My teaching style is more inclined towards practicle knowledge and explaining using day to day example",
+      "Explain about the teaching style you follow for better understanding",
   },
   {
     id: 6,
     section: "Subject Expertise",
-    answer: ["Maths, ", "Science, ", "English, "],
+    answer:
+      "Tell us about the subject you want to teach here... ex - Maths, English, Science, etc",
   },
   {
     id: 7,
     section: "Availability",
-    answer: ["4pm - 7pm", "Monday to friday"],
+    answer: "Provide the prefered timing according to your availability",
   },
   {
     id: 9,
-    section: "Preferred Rate",
-    answer: 2000,
+    section: "Asking fees",
+    answer: "Enter the fees you are asking for 1 month of Tution",
   },
 ];

@@ -3,6 +3,7 @@ import { images } from "../utils/image";
 import { useState } from "react";
 import ApiError from "../../../BackEnd/src/utils/ApiError";
 import { ChevronDown, MousePointerClick } from "lucide-react";
+import { alertError, alertSuccess } from "../utils/Alert";
 
 const Register = () => {
   // All Variables declaration for this components
@@ -13,8 +14,8 @@ const Register = () => {
     fullName: "",
     email: "",
     username: "",
-    gradeLevel: "",
-    learningStyle: "",
+    // gradeLevel: "",
+    // learningStyle: "",
     startTime: "",
     endTime: "",
     currentStatus: "",
@@ -40,10 +41,6 @@ const Register = () => {
   };
 
   const HandelImage = (event) => {
-    // const file = event.target.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onload = (e) => setAvatar(e.target.result);
     console.log(event.target.files);
     setAvatar(event.target.files[0]);
     console.log(avatar);
@@ -77,33 +74,7 @@ const Register = () => {
     return formData;
   }
 
-  // const Register = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formData = createFormData(user, avatar);
-  //     user.avatar = avatar;
-
-  //     console.log(user);
-
-  //     const Response = await fetch(
-  //       "http://localhost:3000/api/v1/user/register",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     ).then((res) => {
-  //       console.log(res);
-  //       // alert(res.message);
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
+  
   const Register = async () => {
     try {
       const formdata = await createFormData(user, avatar);
@@ -116,33 +87,20 @@ const Register = () => {
 
       fetch("http://localhost:3000/api/v1/user/register", requestOptions)
         .then((response) => response.json())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+        .then((result) => {
+          console.log(result);
+          alertSuccess(result.message);
+        })
+        .catch((error) => {
+          console.error(error);
+          alertError(error.message);
+        });
     } catch (error) {
       console.log(error);
     }
   };
 
-  //  Input component for creating form
-  // const FormInput = ({ field, value, placeholder }) => {
-  //   return (
-  //     <div className="w-72 m-5">
-  //       <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-  //         {`${value}`}
-  //       </label>
-  //       <input
-  //         type={`${field}`}
-  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-  //         placeholder={`${placeholder}`}
-  //         name={`${value}`}
-  //         value={user[value]}
-  //         onChange={HandelInputChange}
-  //         required
-  //       />
-  //     </div>
-  //   );
-  // };
-
+  
   return (
     <>
       <div className="text-black flex bg-[#f7f9fb]">
@@ -289,7 +247,7 @@ const Register = () => {
               <input
                 type="text"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="Qualification"
+                placeholder="Graduated"
                 name="currentStatus"
                 value={user.currentStatus}
                 onChange={HandelInputChange}

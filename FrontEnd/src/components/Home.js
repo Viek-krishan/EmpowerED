@@ -11,6 +11,7 @@ const Home = () => {
   const videoChat = useRef(null);
   const chatting = useRef(null);
   const learningPlatform = useRef(null);
+  const landingAnimation = useRef(null);
 
   const navigate = useNavigate();
 
@@ -43,6 +44,13 @@ const Home = () => {
       autoplay: true,
       animationData: require("../assets/ChattingAnimationSVG.json"),
     });
+    Lottie.loadAnimation({
+      container: landingAnimation.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../assets/LandingAnimationSVG.json"),
+    });
   }, []);
 
   const scrollToTeachers = () => {
@@ -51,33 +59,48 @@ const Home = () => {
 
   return (
     <div className="Home w-full h-fit  ">
-      <div className="Home_Details h-[80vh] bg-[#0c0b1e] rounded-bl-[100px] border border-[#0c0b1e]">
-        <section className="Text h-[50vh] m-10 mt-16 ">
-          <h1 className="text-4xl relative left-32">EmpowerED</h1>
-          <p className="font-extralight text-2xl w-2/5 my-20 left-32 relative top-4 ">
+      <div className="Home_Details h-[80vh] bg-[#0c0b1e] rounded-bl-[100px] border border-[#0c0b1e] w-full flex ">
+        <section className="Text h-[50vh] ml-36 mt-16 w-[60%]">
+          <h1 className="text-5xl left-1/2 font-semibold text-[#1ad179]">
+            EmpowerED..
+          </h1>
+          <p className="font-extralight text-2xl w-3/4 my-16 top-4 ">
             Traditionally, education has revolved around physical classrooms,
             textbooks, and face-to-face interactions. However, the digital age
             has ushered in a new era of learning, with online tuition emerging
             as a powerful force.
           </p>
-          <div className="flex w-fit top-8 relative ml-32">
+          <div className="flex justify-evenly w-3/4  top-8">
+            <div>
+              <Link
+                to={"/class"}
+                className={`text-black bg-gray-100 w-full h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium`}
+              >
+                Connect To Classroom
+              </Link>
+            </div>
+            <div className="ScrollToTeachersPage text-white flex justify-center">
+              <Buttons text={"Connect to Teachers"} toCall={scrollToTeachers} />
+            </div>
             <div>
               <Link
                 to={"/register"}
-                className={`text-black bg-gray-100 w-20 h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium${
-                  location.pathname === "/register" ? " bg-[#1ad179] " : ""
-                }`}
+                className={`text-black bg-gray-100 w-full h-10 m-4 rounded-xl flex justify-center items-center hover:scale-110 transition duration-150 ease-in-out hover:bg-[#1ad179] drop-shadow-lg hover:drop-shadow-2xl hover:text-black hover:font-medium`}
               >
-                Register
+                View our Blogs
               </Link>
             </div>
-            <div>
+
+            {/* <div>
               <Buttons text={"Guest"} size={"xl"} />
-            </div>
+            </div> */}
           </div>
         </section>
-        <section className="Img flex items-center  absolute top-56 left-[55vw]">
-          <img src={images[0].url} alt="Illustration" className="w-96 " />
+        <section
+          className="Img flex items-center justify-center top-56 w-[40%] mr-10"
+          ref={landingAnimation}
+        >
+          {/* <img src={images[13].url} alt="Illustration" className="w-full " /> */}
         </section>
       </div>
 
@@ -146,10 +169,6 @@ const Home = () => {
             </p>
           </section>
         </div>
-      </div>
-
-      <div className="ScrollToTeachersPage text-white flex justify-center">
-        <Buttons text={"Scroll to Teachers"} toCall={scrollToTeachers} />
       </div>
     </div>
   );

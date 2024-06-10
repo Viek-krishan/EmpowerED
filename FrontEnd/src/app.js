@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-custom-alert";
+import io from "socket.io-client";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -20,8 +21,32 @@ import TeacherRegisterPage from "./components/TeacherRegisterPage";
 import FAQ from "./components/FAQ";
 import TermsAndConditions from "./utils/TermsAndConditions";
 import Enquiry from "./components/Enquiry";
+import PaymentService from "./utils/PaymentPage";
+import FormPage from "./components/CreateRoom";
+
+const server = "http://localhost:3000";
+const connectionOption = {
+  "force new connection": true,
+  reconnectionAttempts: "Infinity",
+  timeout: 10000,
+  transports: ["websocket"],
+};
+
+// const socket = io(server, connectionOption);
+// const [user, setUser] = useState(null);
+const socket = 5;
 
 const AppLayout = () => {
+  // useEffect(() => {
+  //   socket.on("userIsJoined", (data) => {
+  //     if (data.success) {
+  //       console.log("user Joined");
+  //     } else {
+  //       console.log("user joining failed");
+  //     }
+  //   });
+  // }, []);
+
   return (
     <div className="container w-full overflow-hidden text-white">
       <Provider store={appStore}>
@@ -47,6 +72,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/teacher",
         element: <Teachers />,
+      },
+      {
+        path: "/room",
+        element: <FormPage socket={socket}  />,
+      },
+      {
+        path: "/room/:roomId",
+        element: <Class />,
       },
       {
         path: "/class",
@@ -94,7 +127,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/enquiry",
-        element: <Enquiry/>,
+        element: <Enquiry />,
+      },
+      {
+        path: "/payments",
+        element: <PaymentService />,
       },
     ],
   },

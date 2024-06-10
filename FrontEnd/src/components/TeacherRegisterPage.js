@@ -1,27 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import { images } from "../utils/image";
 import { useState } from "react";
-import ApiError from "../../../BackEnd/src/utils/ApiError";
 import { ChevronDown, MousePointerClick } from "lucide-react";
+import { alertSuccess, alertError, alertInfo } from "../utils/Alert";
 
 const TeacherRegisterPage = () => {
   // All Variables declaration for this components
   const navigate = useNavigate();
 
   const [avatar, setAvatar] = useState(null);
+  const [introVideo, setIntroVideo] = useState(null);
   const [user, setUser] = useState({
     fullName: "",
     email: "",
     username: "",
-    gradeLevel: "",
-    learningStyle: "",
+    currentQualification: "",
+    isEmployed: "",
     startTime: "",
     endTime: "",
-    currentStatus: "",
-    // interest,
+    bio: "",
+    fees: Number,
     age: Number,
     phone: Number,
-    board: "",
     passkey: "",
     avatar: null,
   });
@@ -34,27 +34,22 @@ const TeacherRegisterPage = () => {
   const HandelInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    // console.log(name, value);
     setUser({ ...user, [name]: value });
-    // console.log(user);
   };
 
   const HandelImage = (event) => {
-    // const file = event.target.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onload = (e) => setAvatar(e.target.result);
-    console.log(event.target.files);
-    setAvatar(event.target.files[0]);
-    console.log(avatar);
-  };
-  const HandelVideo = (event) => {
     console.log(event.target.files);
     setAvatar(event.target.files[0]);
     console.log(avatar);
   };
 
-  function createFormData(user, avatar) {
+  const HandelVideo = (event) => {
+    console.log(event.target.files);
+    setIntroVideo(event.target.files[0]);
+    console.log(avatar);
+  };
+
+  function createFormData(user, avatar, introVideo) {
     const formData = new FormData();
 
     // Add user data as key-value pairs
@@ -78,40 +73,20 @@ const TeacherRegisterPage = () => {
       }
       formData.append("avatar", avatar);
     }
+    if (introVideo) {
+      if (!introVideo.type.match("video/*")) {
+        console.error("Invalid file type. Please select an video.");
+        return null; // Return null to indicate an error (optional)
+      }
+      formData.append("introVideo", introVideo);
+    }
     // console.log(formData);
     return formData;
   }
 
-  // const Register = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formData = createFormData(user, avatar);
-  //     user.avatar = avatar;
-
-  //     console.log(user);
-
-  //     const Response = await fetch(
-  //       "http://localhost:3000/api/v1/user/register",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     ).then((res) => {
-  //       console.log(res);
-  //       // alert(res.message);
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
   const Register = async () => {
     try {
-      const formdata = await createFormData(user, avatar);
+      const formdata = await createFormData(user, avatar, introVideo);
 
       const requestOptions = {
         method: "POST",
@@ -119,10 +94,19 @@ const TeacherRegisterPage = () => {
         redirect: "follow",
       };
 
-      fetch("http://localhost:3000/api/v1/user/register", requestOptions)
+      await fetch(
+        "http://localhost:3000/api/v1/teacher/register",
+        requestOptions
+      )
         .then((response) => response.json())
-        .then((result) => console.log(result))
-        .catch((error) => console.error(error));
+        .then((result) => {
+          console.log(result);
+          alertSuccess(result.message);
+        })
+        .catch((error) => {
+          console.error(error);
+          alertError(error.message);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -219,36 +203,6 @@ const TeacherRegisterPage = () => {
                 required
               />
             </div>
-            {/* <div className="GradeLevel w-72 m-5">
-              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-                Grade level
-              </label>
-              <input
-                type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                placeholder="vivek123"
-                name="gradeLevel"
-                value={user.gradeLevel}
-                onChange={HandelInputChange}
-                required
-              />
-            </div> */}
-
-            {/* <div className="learningStyle w-72 m-5">
-              <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
-                Learning Style
-              </label>
-              <select
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                name="board"
-                onChange={HandelInputChange}
-              >
-                <option value={""}>Choose your Style</option>
-                <option value={"Online"}>Slow Learner</option>
-                <option value={"Offline"}>Fast Learner</option>
-              </select>
-            </div> */}
-
             <div className="age w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Age
@@ -263,13 +217,13 @@ const TeacherRegisterPage = () => {
                 required
               />
             </div>
-            <div className="Board w-72 m-5">
+            <div className="CurrentQualification w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Current Qualification Level
               </label>
               <select
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                name="board"
+                name="currentQualification"
                 onChange={HandelInputChange}
               >
                 <option value={""}>Select</option>
@@ -283,13 +237,13 @@ const TeacherRegisterPage = () => {
                 </option> */}
               </select>
             </div>
-            <div className="currentStatus w-72 m-5">
+            <div className="isEmployed w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Employed / Unemployed
               </label>
               <select
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                name="board"
+                name="isEmployed"
                 onChange={HandelInputChange}
               >
                 <option value={""}>Select</option>
@@ -297,7 +251,7 @@ const TeacherRegisterPage = () => {
                 <option value={"Unemployed"}>Unemployed</option>
               </select>
             </div>
-            <div className="GradeLevel w-72 m-5">
+            <div className="Bio w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Bio
               </label>
@@ -305,16 +259,20 @@ const TeacherRegisterPage = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani resize-y overflow-x-hidden overflow-y-auto"
                 type="text"
                 placeholder="About Yourself"
+                name="bio"
+                value={user.bio}
+                onChange={HandelInputChange}
                 required
               ></textarea>
             </div>
-            <div className="currentStatus w-72 m-5">
+            <div className="Fees w-72 m-5">
               <label className="block mb-2 text-lg font-semibold w-fit text-gray-900 dark:text-black font-Philosopher">
                 Fee Expectations
               </label>
               <select
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
-                name="board"
+                name="fees"
+                value={user.fees}
                 onChange={HandelInputChange}
               >
                 <option value={""}>Select</option>
@@ -353,8 +311,7 @@ const TeacherRegisterPage = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
                 accept="video/*"
                 placeholder="Introduction Video"
-                name="password"
-                value={user.password}
+                name="introVideo"
                 onChange={HandelVideo}
                 required
               />
@@ -367,9 +324,8 @@ const TeacherRegisterPage = () => {
                 type="file"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 font-Rajdhani"
                 accept="image/*"
-                placeholder="vivek123"
-                name="password"
-                value={user.password}
+                placeholder="Upload your profile picture"
+                name="avatar"
                 onChange={HandelImage}
                 required
               />
