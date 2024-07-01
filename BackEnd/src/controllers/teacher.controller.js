@@ -63,7 +63,7 @@ const RegisterTeacher = asyncHandler(async (req, res) => {
     passkey,
   } = req.body;
 
-  console.log(req);
+  // console.log(req);
 
   if (
     [
